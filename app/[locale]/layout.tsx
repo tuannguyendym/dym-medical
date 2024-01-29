@@ -3,17 +3,16 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return [{ locale: "vi" }];
-}
+type RootLayoutProps = {
+  children: React.ReactNode;
+  params: { locale: string };
+};
 
 export default async function RootLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+}: RootLayoutProps) {
+  
   let messages;
   try {
     messages = (await import(`../../messages/${params.locale}.json`)).default;

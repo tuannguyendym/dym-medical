@@ -27,16 +27,19 @@ import {
 } from "./components/Icons";
 import { AcmeLogo } from "./components/AcmeLogo";
 import { useTranslations } from "next-intl";
+import { useParams, useRouter, usePathname } from "next/navigation";
 
 export default function App() {
   const t = useTranslations();
+  const params = useParams();
+  const pathname = usePathname();
+  const router = useRouter();
+  console.log(params, pathname);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedKeys, setSelectedKeys] = useState(
-    new Set([t("ui.language.vi")])
-  );
-  const selectedValue = useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys]
+  const [selectedKeys, setSelectedKeys] = useState(new Set([params.locale]));
+  const [selectedValue, setSelectedValue] = useState<String | String[]>(
+    params.locale
   );
 
   const menuItems = [
@@ -276,10 +279,22 @@ export default function App() {
           selectedKeys={selectedKeys}
           onSelectionChange={setSelectedKeys}
         >
-          <DropdownItem key={t("ui.language.vi")}>
+          <DropdownItem
+            onClick={() => {
+              router.push("/vi" + pathname.slice(3));
+              setSelectedValue(t("ui.language.vi"));
+            }}
+            key="vi"
+          >
             {t("ui.language.vi")}
           </DropdownItem>
-          <DropdownItem key={t("ui.language.en")}>
+          <DropdownItem
+            onClick={() => {
+              router.push("/en" + pathname.slice(3));
+              setSelectedValue(t("ui.language.en"));
+            }}
+            key="en"
+          >
             {t("ui.language.en")}
           </DropdownItem>
         </DropdownMenu>
