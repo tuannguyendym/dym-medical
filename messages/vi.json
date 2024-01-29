@@ -23,5 +23,11 @@
   },
   "index": {
     "title": "Xin chào"
+  },
+  "ui": {
+    "language": {
+      "en": "English",
+      "vi": "Tiếng Việt"
+    }
   }
 }

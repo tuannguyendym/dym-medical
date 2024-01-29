@@ -23,5 +23,11 @@
   },
   "index": {
     "title": "Hello world!"
+  },
+  "ui": {
+    "language": {
+      "en": "English",
+      "vi": "Tiếng Việt"
+    }
   }
 }

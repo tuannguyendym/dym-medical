@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -31,6 +31,14 @@ import { useTranslations } from "next-intl";
 export default function App() {
   const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedKeys, setSelectedKeys] = useState(
+    new Set([t("ui.language.vi")])
+  );
+  const selectedValue = useMemo(
+    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    [selectedKeys]
+  );
+
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -193,8 +201,8 @@ export default function App() {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+      <NavbarContent className="hidden lg:flex" justify="end">
+        <NavbarItem>
           <Link href="/">{t("auth.signIn.text")}</Link>
         </NavbarItem>
         <NavbarItem>
@@ -254,6 +262,28 @@ export default function App() {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
+      <Dropdown>
+        <DropdownTrigger>
+          <Button variant="bordered" className="capitalize">
+            {selectedValue}
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu
+          aria-label="Single selection example"
+          variant="flat"
+          disallowEmptySelection
+          selectionMode="single"
+          selectedKeys={selectedKeys}
+          onSelectionChange={setSelectedKeys}
+        >
+          <DropdownItem key={t("ui.language.vi")}>
+            {t("ui.language.vi")}
+          </DropdownItem>
+          <DropdownItem key={t("ui.language.en")}>
+            {t("ui.language.en")}
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
     </Navbar>
   );
 }
