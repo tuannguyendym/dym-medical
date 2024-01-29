@@ -1,9 +1,25 @@
 {
   "auth": {
-    "login": {
-      "text": "Login",
-      "title": "Login to your account"
-    }
+    "signIn": {
+      "text": "Sign in",
+      "title": "Sign in to your account",
+      "rememberMe": "Remember me",
+      "alreadyHaveAccount": "Already have an account? Sign in"
+    },
+    "forgotPassword": {
+      "text": "Forgot password?",
+      "title": "Forgot password?"
+    },
+    "signUp": {
+      "text": "Sign up",
+      "title": "Sign up an account",
+      "dontHaveAccount": "Don't have an account yet?",
+      "signUpAgree": "By creating an account you agree to our",
+      "termsAndPrivacy": "Terms & Privacy"
+    },
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit"
   },
   "index": {
     "title": "Hello world!"

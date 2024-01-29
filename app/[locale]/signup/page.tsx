@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import NextLink from "next/link";
 import {
   Button,
   Input,
@@ -10,17 +9,20 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
+  Link,
 } from "@nextui-org/react";
+import Navbar from "../Navbar";
+import { useTranslations } from "next-intl";
 
 export default function App() {
-  const [isVisible, setIsVisible] = useState(false);
+  const t = useTranslations();
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isAgree, setIsAgree] = useState(false);
 
   return (
     <div>
+      <Navbar />
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
@@ -32,20 +34,20 @@ export default function App() {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Sign up an account
+                {t("auth.signUp.title")}
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
                 <Input
                   type="email"
-                  label="Email"
+                  label={t("auth.email")}
                   variant="bordered"
                   autoFocus
                 />
 
                 <Input
-                  label="Password"
+                  label={t("auth.password")}
                   variant="bordered"
-                  type={isVisible ? "text" : "password"}
+                  type="password"
                   className=""
                 />
                 <div className="flex items-center justify-between">
@@ -64,13 +66,11 @@ export default function App() {
                     <div className="ml-3 text-sm">
                       <label
                         htmlFor="remember"
-                        className="flex text-gray-500 dark:text-gray-300"
+                        className="text-gray-500 dark:text-gray-300"
                       >
-                        <p className="mr-1">
-                          By creating an account you agree to our
-                        </p>
+                        <p className="mr-1">{t("auth.signUp.signUpAgree")}</p>
                         <a href="#" onClick={onOpen} className="text-blue-500">
-                          Terms & Privacy
+                          {t("auth.signUp.termsAndPrivacy")}
                         </a>
                       </label>
                     </div>
@@ -79,14 +79,14 @@ export default function App() {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-start"></div>
-                  <NextLink href={"/"}>
+                  <Link href="/">
                     <p className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
-                      Already have an account? Sign in
+                      {t("auth.signIn.alreadyHaveAccount")}
                     </p>
-                  </NextLink>
+                  </Link>
                 </div>
                 <Button color="primary" className="w-full">
-                  Sign up
+                  {t("auth.signUp.text")}
                 </Button>
               </form>
             </div>

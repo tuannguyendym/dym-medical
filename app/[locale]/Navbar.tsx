@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,6 +12,9 @@ import {
   Dropdown,
   DropdownMenu,
   Avatar,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
 } from "@nextui-org/react";
 import {
   ChevronDown,
@@ -21,10 +24,26 @@ import {
   Server,
   TagUser,
   Scale,
-} from "../components/Icons";
-import { AcmeLogo } from "../components/AcmeLogo";
+} from "./components/Icons";
+import { AcmeLogo } from "./components/AcmeLogo";
+import { useTranslations } from "next-intl";
 
 export default function App() {
+  const t = useTranslations();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
+  ];
+
   const icons = {
     chevron: (
       <ChevronDown
@@ -92,10 +111,17 @@ export default function App() {
 
   return (
     <Navbar>
-      <NavbarBrand>
-        <AcmeLogo />
-        <p className="font-bold text-inherit">ACME</p>
-      </NavbarBrand>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <AcmeLogo />
+          <p className="font-bold text-inherit">DYM</p>
+        </NavbarBrand>
+      </NavbarContent>
+
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <Dropdown>
           <NavbarItem>
@@ -167,18 +193,18 @@ export default function App() {
         </NavbarItem>
       </NavbarContent>
 
-      {/* <NavbarContent justify="end">
+      <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Sign in</Link>
+          <Link href="/">{t("auth.signIn.text")}</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+          <Button as={Link} color="primary" href="/signup" variant="flat">
+            {t("auth.signUp.text")}
           </Button>
         </NavbarItem>
-      </NavbarContent> */}
+      </NavbarContent>
 
-      <NavbarContent as="div" justify="end">
+      {/* <NavbarContent as="div" justify="end">
         <Dropdown placement="bottom-end">
           <DropdownTrigger>
             <Avatar
@@ -207,7 +233,27 @@ export default function App() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-      </NavbarContent>
+      </NavbarContent> */}
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link
+              color={
+                index === 2
+                  ? "primary"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
+              }
+              className="w-full"
+              href="#"
+              size="lg"
+            >
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }

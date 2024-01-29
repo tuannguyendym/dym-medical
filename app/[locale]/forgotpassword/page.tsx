@@ -1,15 +1,18 @@
 "use client";
 import { useState } from "react";
-import NextLink from "next/link";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Link } from "@nextui-org/react";
+import Navbar from "../Navbar";
+import { useTranslations } from "next-intl";
 
 export default function App() {
+  const t = useTranslations();
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const togglFeVisibility = () => setIsVisible(!isVisible);
 
   return (
     <div className="">
+      <Navbar />
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
@@ -21,12 +24,12 @@ export default function App() {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Forgot password?
+                {t("auth.forgotPassword.title")}
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
                 <Input
                   type="email"
-                  label="Email"
+                  label={t("auth.email")}
                   variant="bordered"
                   className=""
                   autoFocus
@@ -34,22 +37,22 @@ export default function App() {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-start"></div>
-                  <NextLink href={"/"}>
+                  <Link href="/">
                     <p className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
-                      Already have an account? Sign in
+                      {t("auth.signIn.alreadyHaveAccount")}
                     </p>
-                  </NextLink>
+                  </Link>
                 </div>
                 <Button color="primary" className="w-full">
-                  Submit
+                  {t("auth.submit")}
                 </Button>
-                <div className="flex text-sm font-light text-gray-500 dark:text-gray-400">
-                  <p className="mr-1">Don't have an account yet?</p>
-                  <NextLink href={"signup"}>
+                <div className="flex font-light text-gray-500 dark:text-gray-400">
+                  <p className="mr-1">{t("auth.signUp.dontHaveAccount")}</p>
+                  <Link href="/signup">
                     <p className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                      Sign up
+                      {t("auth.signUp.text")}
                     </p>
-                  </NextLink>
+                  </Link>
                 </div>
               </form>
             </div>

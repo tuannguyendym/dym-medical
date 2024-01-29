@@ -1,9 +1,25 @@
 {
   "auth": {
-    "login": {
+    "signIn": {
       "text": "Đăng nhập",
-      "title": "Đăng nhập vào tài khoản của bạn"
-    }
+      "title": "Đăng nhập vào tài khoản của bạn",
+      "rememberMe": "Ghi nhớ tôi",
+      "alreadyHaveAccount": "Đã có tài khoản? Đăng nhập"
+    },
+    "forgotPassword": {
+      "text": "Quên mật khẩu?",
+      "title": "Quên mật khẩu?"
+    },
+    "signUp": {
+      "text": "Đăng ký",
+      "title": "Đăng ký tài khoản",
+      "dontHaveAccount": "Chưa có tài khoản?",
+      "signUpAgree": "Bằng cách tạo một tài khoản, bạn đồng ý với",
+      "termsAndPrivacy": "Điều khoản và Quyền riêng tư của chúng tôi"
+    },
+    "email": "Tài khoản",
+    "password": "Mật khẩu",
+    "submit": "Gửi"
   },
   "index": {
     "title": "Xin chào"
