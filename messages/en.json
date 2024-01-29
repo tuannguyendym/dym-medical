@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "login": {
+      "text": "Login",
+      "title": "Login to your account"
+    }
+  },
+  "index": {
+    "title": "Hello world!"
+  }
+}

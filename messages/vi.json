@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "login": {
+      "text": "Đăng nhập",
+      "title": "Đăng nhập vào tài khoản của bạn"
+    }
+  },
+  "index": {
+    "title": "Xin chào"
+  }
+}
