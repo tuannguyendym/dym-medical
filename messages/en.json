@@ -19,6 +19,15 @@
     },
     "email": "Email",
     "password": "Password",
+    "confirmPassword": "Confirm password",
+    "fullName": "Full name",
+    "phoneNumber": "Phone number",
+    "dob": {
+      "day": "Day",
+      "month": "Month",
+      "year": "Year"
+    },
+    "gender": "Gender",
     "submit": "Submit"
   },
   "index": {

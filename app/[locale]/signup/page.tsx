@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   Input,
@@ -13,21 +13,52 @@ import {
 } from "@nextui-org/react";
 import Navbar from "../Navbar";
 import { useTranslations } from "next-intl";
+import axios from "axios";
+import { useParams } from "next/navigation";
 
 export default function App() {
   const t = useTranslations();
+  const params = useParams();
+  const locale = params.locale.toString();
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isAgree, setIsAgree] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [gender, setGender] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAndPrivacy, setTermsAndPrivacy] = useState("");
+
+  const getTermsAndPrivacy = async () => {
+    try {
+      const res = await axios.get(
+        process.env.NEXT_PUBLIC_NEWSAPI_URL +
+          "/terms-of-service?locale=" +
+          locale
+      );
+      // console.log(res.data.data.attributes.description);
+      setTermsAndPrivacy(res.data.data.attributes.description);
+    } catch (error) {
+      // Handle errors
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    getTermsAndPrivacy();
+  }, []);
 
   return (
     <div>
       <Navbar />
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div
-            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-          >
+          <div className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img className="h-14 mr-2" src="/dym.png" alt="logo" />
           </div>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -36,19 +67,83 @@ export default function App() {
                 {t("auth.signUp.title")}
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
-                <Input
-                  type="email"
-                  label={t("auth.email")}
-                  variant="bordered"
-                  autoFocus
-                />
-
-                <Input
-                  label={t("auth.password")}
-                  variant="bordered"
-                  type="password"
-                  className=""
-                />
+                <div className="space-y-4 md:space-y-6">
+                  <Input
+                    type="text"
+                    label={t("auth.fullName")}
+                    variant="bordered"
+                    name="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    autoFocus
+                  />
+                  <Input
+                    type="text"
+                    label={t("auth.phoneNumber")}
+                    variant="bordered"
+                    name="phoneNumber"
+                    value={phoneNumber}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <Input
+                    type="text"
+                    label={t("auth.dob.day")}
+                    variant="bordered"
+                    name="day"
+                    value={day}
+                    onChange={(e) => setDay(e.target.value)}
+                  />
+                  <Input
+                    type="text"
+                    label={t("auth.dob.month")}
+                    variant="bordered"
+                    name="month"
+                    value={month}
+                    onChange={(e) => setMonth(e.target.value)}
+                  />
+                  <Input
+                    type="text"
+                    label={t("auth.dob.year")}
+                    variant="bordered"
+                    name="year"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
+                  />
+                  <Input
+                    type="text"
+                    label={t("auth.gender")}
+                    variant="bordered"
+                    name="gender"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-4 md:space-y-6">
+                  <Input
+                    type="email"
+                    label={t("auth.email")}
+                    variant="bordered"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <Input
+                    type="password"
+                    label={t("auth.password")}
+                    variant="bordered"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <Input
+                    type="password"
+                    label={t("auth.confirmPassword")}
+                    variant="bordered"
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
@@ -92,7 +187,12 @@ export default function App() {
           </div>
         </div>
       </section>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        size="2xl"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        scrollBehavior="inside"
+      >
         <ModalContent>
           {(onClose) => (
             <>
@@ -100,24 +200,9 @@ export default function App() {
                 Terms & Privacy
               </ModalHeader>
               <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
+                <div
+                  dangerouslySetInnerHTML={{ __html: termsAndPrivacy }}
+                ></div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>

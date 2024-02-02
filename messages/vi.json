@@ -19,6 +19,15 @@
     },
     "email": "Tài khoản",
     "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "fullName": "Họ và tên",
+    "phoneNumber": "Số điện thoại",
+    "dob": {
+      "day": "Ngày",
+      "month": "Tháng",
+      "year": "Năm"
+    },
+    "gender": "Giới tính",
     "submit": "Gửi"
   },
   "index": {

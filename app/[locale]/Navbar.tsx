@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -11,7 +11,6 @@ import {
   DropdownTrigger,
   Dropdown,
   DropdownMenu,
-  Avatar,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
@@ -31,16 +30,16 @@ import { useParams, useRouter, usePathname } from "next/navigation";
 
 export default function App() {
   const t = useTranslations();
-  const params = useParams();
   const pathname = usePathname();
   const router = useRouter();
-  console.log(params, pathname);
+  const params = useParams();
+  const locale = params.locale.toString();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedKeys, setSelectedKeys] = useState(new Set([params.locale]));
-  const [selectedValue, setSelectedValue] = useState<String | String[]>(
-    params.locale
+  const [selectedValue, setSelectedValue] = useState(
+    locale == "vi" ? t("ui.language.vi") : t("ui.language.en")
   );
+  const [selectedKeys, setSelectedKeys] = useState(new Set([locale]));
 
   const menuItems = [
     "Profile",
@@ -277,7 +276,7 @@ export default function App() {
           disallowEmptySelection
           selectionMode="single"
           selectedKeys={selectedKeys}
-          onSelectionChange={setSelectedKeys}
+          onSelectionChange={() => setSelectedKeys}
         >
           <DropdownItem
             onClick={() => {
