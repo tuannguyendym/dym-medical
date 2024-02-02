@@ -2,6 +2,8 @@ import NextIntlProvider from "./NextIntlClientProvider";
 import "./globals.css";
 import { Providers } from "./providers";
 import { notFound } from "next/navigation";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -12,7 +14,6 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  
   let messages;
   try {
     messages = (await import(`../../messages/${params.locale}.json`)).default;
@@ -29,7 +30,11 @@ export default async function RootLayout({
           timeZone="Asia/Ho_Chi_Minh"
           now={new Date()}
         >
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <SpeedInsights />
+            <Analytics />
+          </Providers>
         </NextIntlProvider>
       </body>
     </html>
