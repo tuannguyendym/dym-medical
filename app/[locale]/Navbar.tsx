@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -27,6 +27,7 @@ import {
 import { AcmeLogo } from "./components/AcmeLogo";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
+import axios from "axios";
 
 export default function App() {
   const t = useTranslations();
@@ -40,6 +41,35 @@ export default function App() {
     locale == "vi" ? t("ui.language.vi") : t("ui.language.en")
   );
   const [selectedKeys, setSelectedKeys] = useState(new Set([locale]));
+
+  const [authKey, setAuthKey] = useState<string | null>();
+  const [languages, setLanguages] = useState();
+
+  const getLanguages = async (authKey: any) => {
+    try {
+      const res = await axios.get(
+        process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/GetLanguages",
+        {
+          headers: {
+            token_key: authKey,
+          },
+        }
+      );
+      console.log(res.data);
+      localStorage.setItem("languages", JSON.stringify(res.data.Data));
+      // setLanguages(res.data.Data);
+    } catch (error) {
+      // Handle errors
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    const auth_key = localStorage.getItem("auth_key") || "";
+    const languages = localStorage.getItem("languages") || "";
+    setAuthKey(auth_key);
+    if (languages == "") getLanguages(authKey);
+  }, []);
 
   const menuItems = [
     "Profile",

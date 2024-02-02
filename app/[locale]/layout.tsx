@@ -1,3 +1,4 @@
+
 import NextIntlProvider from "./NextIntlClientProvider";
 import "./globals.css";
 import { Providers } from "./providers";
