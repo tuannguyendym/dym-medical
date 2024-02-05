@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
-  const getAuthKey = async () => {
+  const getTokenKey = async () => {
     try {
       const res = await axios.get(
         process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/GetToken",
@@ -18,8 +18,30 @@ export function Providers({ children }: { children: React.ReactNode }) {
         }
       );
       // console.log(res.data);
-      localStorage.setItem("auth_key", JSON.stringify(res.data.Data.auth_key));
-      localStorage.setItem("ExpireTimeUTC", JSON.stringify(res.data.Data.ExpireTimeUTC));
+      getLanguages(res.data.Data.auth_key);
+      localStorage.setItem("token_key", JSON.stringify(res.data.Data.auth_key));
+      localStorage.setItem(
+        "ExpireTimeUTC",
+        JSON.stringify(res.data.Data.ExpireTimeUTC)
+      );
+    } catch (error) {
+      // Handle errors
+      return error;
+    }
+  };
+
+  const getLanguages = async (tokenKey: any) => {
+    try {
+      const res = await axios.get(
+        process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/GetLanguages",
+        {
+          headers: {
+            token_key: tokenKey,
+          },
+        }
+      );
+      console.log(res.data);
+      localStorage.setItem("languages", JSON.stringify(res.data.Data));
     } catch (error) {
       // Handle errors
       return error;
@@ -27,8 +49,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-  const auth_key = localStorage.getItem("auth_key") || "";
-    if (auth_key == "") getAuthKey();
+    const token_key = localStorage.getItem("token_key") || "";
+    if (token_key == "") getTokenKey();
   }, []);
 
   return <NextUIProvider navigate={router.push}>{children}</NextUIProvider>;

@@ -15,6 +15,7 @@ import Navbar from "../Navbar";
 import { useTranslations } from "next-intl";
 import axios from "axios";
 import { useParams } from "next/navigation";
+import { LOGIN } from "@/route";
 
 export default function App() {
   const t = useTranslations();
@@ -70,16 +71,15 @@ export default function App() {
                 <div className="space-y-4 md:space-y-6">
                   <Input
                     type="text"
-                    label={t("auth.fullName")}
+                    label={t("Data.Register.FullName")}
                     variant="bordered"
                     name="fullName"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    autoFocus
                   />
                   <Input
                     type="text"
-                    label={t("auth.phoneNumber")}
+                    label={t("Data.Register.Phone")}
                     variant="bordered"
                     name="phoneNumber"
                     value={phoneNumber}
@@ -87,7 +87,7 @@ export default function App() {
                   />
                   <Input
                     type="text"
-                    label={t("auth.dob.day")}
+                    label={t("Data.Register.Day")}
                     variant="bordered"
                     name="day"
                     value={day}
@@ -95,7 +95,7 @@ export default function App() {
                   />
                   <Input
                     type="text"
-                    label={t("auth.dob.month")}
+                    label={t("Data.Register.Month")}
                     variant="bordered"
                     name="month"
                     value={month}
@@ -103,7 +103,7 @@ export default function App() {
                   />
                   <Input
                     type="text"
-                    label={t("auth.dob.year")}
+                    label={t("Data.Register.Year")}
                     variant="bordered"
                     name="year"
                     value={year}
@@ -111,7 +111,7 @@ export default function App() {
                   />
                   <Input
                     type="text"
-                    label={t("auth.gender")}
+                    label={t("Data.Register.Gender")}
                     variant="bordered"
                     name="gender"
                     value={gender}
@@ -120,8 +120,8 @@ export default function App() {
                 </div>
                 <div className="space-y-4 md:space-y-6">
                   <Input
-                    type="email"
-                    label={t("auth.email")}
+                    type="text"
+                    label={t("Data.Register.EmailPlaceholder")}
                     variant="bordered"
                     name="email"
                     value={email}
@@ -129,7 +129,7 @@ export default function App() {
                   />
                   <Input
                     type="password"
-                    label={t("auth.password")}
+                    label={t("Data.Register.Password")}
                     variant="bordered"
                     name="password"
                     value={password}
@@ -137,7 +137,7 @@ export default function App() {
                   />
                   <Input
                     type="password"
-                    label={t("auth.confirmPassword")}
+                    label={t("Data.Register.ConfirmPassword")}
                     variant="bordered"
                     name="confirmPassword"
                     value={confirmPassword}
@@ -162,9 +162,9 @@ export default function App() {
                         htmlFor="remember"
                         className="text-gray-500 dark:text-gray-300"
                       >
-                        <p className="mr-1">{t("auth.signUp.signUpAgree")}</p>
+                        <p className="mr-1">{t("Data.Register.Checkbox1")}</p>
                         <a href="#" onClick={onOpen} className="text-blue-500">
-                          {t("auth.signUp.termsAndPrivacy")}
+                          {t("Data.Register.Checkbox2")}
                         </a>
                       </label>
                     </div>
@@ -173,7 +173,7 @@ export default function App() {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-start"></div>
-                  <Link href="/">
+                  <Link href={LOGIN}>
                     <p className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
                       {t("auth.signIn.alreadyHaveAccount")}
                     </p>

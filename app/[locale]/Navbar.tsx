@@ -14,6 +14,7 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Avatar,
 } from "@nextui-org/react";
 import {
   ChevronDown,
@@ -27,7 +28,7 @@ import {
 import { AcmeLogo } from "./components/AcmeLogo";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
-import axios from "axios";
+import { LOGIN, REGISTER } from "@/route";
 
 export default function App() {
   const t = useTranslations();
@@ -38,38 +39,24 @@ export default function App() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(
-    locale == "vi" ? t("ui.language.vi") : t("ui.language.en")
+    locale == "vi"
+      ? t("Data.Language.VI")
+      : locale == "en"
+      ? t("Data.Language.EN")
+      : locale == "ja"
+      ? t("Data.Language.JA")
+      : t("Data.Language.VI")
   );
-  const [selectedKeys, setSelectedKeys] = useState(new Set([locale]));
 
-  const [authKey, setAuthKey] = useState<string | null>();
-  const [languages, setLanguages] = useState();
-
-  const getLanguages = async (authKey: any) => {
-    try {
-      const res = await axios.get(
-        process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/GetLanguages",
-        {
-          headers: {
-            token_key: authKey,
-          },
-        }
-      );
-      console.log(res.data);
-      localStorage.setItem("languages", JSON.stringify(res.data.Data));
-      // setLanguages(res.data.Data);
-    } catch (error) {
-      // Handle errors
-      return error;
-    }
-  };
+  const [account, setAccount] = useState<string | null>("");
 
   useEffect(() => {
-    const auth_key = localStorage.getItem("auth_key") || "";
-    const languages = localStorage.getItem("languages") || "";
-    setAuthKey(auth_key);
-    if (languages == "") getLanguages(authKey);
-  }, []);
+    setAccount(localStorage.getItem("account"));
+    console.log(account);
+  }, [account]);
+
+  // locale == "vi" ? t("Data.Language.VI") : t("Data.Language.EN")
+  const [selectedKeys, setSelectedKeys] = useState(new Set([locale]));
 
   const menuItems = [
     "Profile",
@@ -233,47 +220,61 @@ export default function App() {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex" justify="end">
-        <NavbarItem>
-          <Link href="/">{t("auth.signIn.text")}</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="/signup" variant="flat">
-            {t("auth.signUp.text")}
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
+      {account != "" ? (
+        <NavbarContent as="div" justify="end">
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                name="Jason Hughes"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem key="profile" className="h-14 gap-2">
+                <p className="font-semibold">Signed in as</p>
+                <p className="font-semibold">abc@gmail.com</p>
+              </DropdownItem>
+              <DropdownItem key="settings">My Settings</DropdownItem>
+              <DropdownItem key="team_settings">Team Settings</DropdownItem>
+              <DropdownItem key="analytics">Analytics</DropdownItem>
+              <DropdownItem key="system">System</DropdownItem>
+              <DropdownItem key="configurations">Configurations</DropdownItem>
+              <DropdownItem key="help_and_feedback">
+                Help & Feedback
+              </DropdownItem>
+              <DropdownItem
+                key="logout"
+                color="danger"
+                onClick={() => {
+                  setAccount("");
+                  localStorage.setItem("account", "");
+                  localStorage.setItem("auth_key", "");
+                  router.push(LOGIN);
+                }}
+              >
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarContent>
+      ) : (
+        <NavbarContent className="hidden lg:flex" justify="end">
+          <NavbarItem>
+            <Link href={LOGIN}>{t("auth.signIn.text")}</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href={REGISTER} variant="flat">
+              {t("auth.signUp.text")}
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      )}
 
-      {/* <NavbarContent as="div" justify="end">
-        <Dropdown placement="bottom-end">
-          <DropdownTrigger>
-            <Avatar
-              isBordered
-              as="button"
-              className="transition-transform"
-              color="secondary"
-              name="Jason Hughes"
-              size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-            />
-          </DropdownTrigger>
-          <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
-            </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
-              Log Out
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-      </NavbarContent> */}
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
@@ -294,6 +295,7 @@ export default function App() {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
+
       <Dropdown>
         <DropdownTrigger>
           <Button variant="bordered" className="capitalize">
@@ -311,20 +313,29 @@ export default function App() {
           <DropdownItem
             onClick={() => {
               router.push("/vi" + pathname.slice(3));
-              setSelectedValue(t("ui.language.vi"));
+              setSelectedValue(t("Data.Language.VI"));
             }}
             key="vi"
           >
-            {t("ui.language.vi")}
+            {t("Data.Language.VI")}
           </DropdownItem>
           <DropdownItem
             onClick={() => {
               router.push("/en" + pathname.slice(3));
-              setSelectedValue(t("ui.language.en"));
+              setSelectedValue(t("Data.Language.EN"));
             }}
             key="en"
           >
-            {t("ui.language.en")}
+            {t("Data.Language.EN")}
+          </DropdownItem>
+          <DropdownItem
+            onClick={() => {
+              router.push("/ja" + pathname.slice(3));
+              setSelectedValue(t("Data.Language.JA"));
+            }}
+            key="ja"
+          >
+            {t("Data.Language.JA")}
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, Input, Link } from "@nextui-org/react";
 import Navbar from "../Navbar";
 import { useTranslations } from "next-intl";
+import { LOGIN, REGISTER } from "@/route";
 
 export default function App() {
   const t = useTranslations();
@@ -21,20 +22,19 @@ export default function App() {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                {t("auth.forgotPassword.title")}
+                {t("Data.ForgotPassword.Title")}
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
                 <Input
-                  type="email"
-                  label={t("auth.email")}
+                  type="text"
+                  label={t("Data.ForgotPassword.PhoneOrEmail")}
                   variant="bordered"
                   className=""
-                  autoFocus
                 />
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-start"></div>
-                  <Link href="/">
+                  <Link href={LOGIN}>
                     <p className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
                       {t("auth.signIn.alreadyHaveAccount")}
                     </p>
@@ -44,10 +44,10 @@ export default function App() {
                   {t("auth.submit")}
                 </Button>
                 <div className="flex font-light text-gray-500 dark:text-gray-400">
-                  <p className="mr-1">{t("auth.signUp.dontHaveAccount")}</p>
-                  <Link href="/signup">
+                  <p className="mr-1">{t("Data.Login.RegisterTitle")}</p>
+                  <Link href={REGISTER}>
                     <p className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                      {t("auth.signUp.text")}
+                      {t("Data.Login.ButtonRegister")}
                     </p>
                   </Link>
                 </div>

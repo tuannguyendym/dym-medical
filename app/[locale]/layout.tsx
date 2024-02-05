@@ -1,6 +1,8 @@
-
 import NextIntlProvider from "./NextIntlClientProvider";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 import { Providers } from "./providers";
 import { notFound } from "next/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -32,6 +34,7 @@ export default async function RootLayout({
           now={new Date()}
         >
           <Providers>
+            <ToastContainer />
             {children}
             <SpeedInsights />
             <Analytics />
