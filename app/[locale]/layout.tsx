@@ -34,8 +34,8 @@ export default async function RootLayout({
           now={new Date()}
         >
           <Providers>
-            <ToastContainer />
             {children}
+            <ToastContainer />
             <SpeedInsights />
             <Analytics />
           </Providers>

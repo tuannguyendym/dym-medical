@@ -18,58 +18,58 @@ export default function App() {
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const getAccount = async (authKey: any) => {
-    try {
-      const res = await axios.get(
-        process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/GetAccount",
-        {
-          headers: {
-            auth_key: authKey,
-          },
-        }
-      );
-      if (res.data.Success == false) {
-        console.log(t(`Data.ErrorCode.${res.data.ErrorCode}`));
-        return;
-      }
-      localStorage.setItem("account", JSON.stringify(res.data.Data));
-      // console.log(res.data);
-    } catch (error) {
-      // Handle errors
-      return error;
-    }
-  };
+  // const getAccount = async (authKey: any) => {
+  //   try {
+  //     const res = await axios.get(
+  //       process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/GetAccount",
+  //       {
+  //         headers: {
+  //           auth_key: authKey,
+  //         },
+  //       }
+  //     );
+  //     if (res.data.Success == false) {
+  //       console.log(t(`Data.ErrorCode.${res.data.ErrorCode}`));
+  //       return;
+  //     }
+  //     localStorage.setItem("account", JSON.stringify(res.data.Data));
+  //     // console.log(res.data);
+  //   } catch (error) {
+  //     // Handle errors
+  //     return error;
+  //   }
+  // };
 
-  const handleLogin = async () => {
-    try {
-      const res = await axios.post(
-        process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/Login",
-        {
-          UserName: email,
-          Password: password,
-          RememberMe: true,
-          LanguageID: "00000000-0000-0000-0000-000000000001",
-          DeviceUUId: null,
-        },
-        {
-          headers: {
-            api_key: process.env.NEXT_PUBLIC_MCLINIC_API_KEY,
-          },
-        }
-      );
-      if (res.data.Success == false) {
-        toast.error(t(`Data.ErrorCode.${res.data.ErrorCode}`));
-        return;
-      }
-      localStorage.setItem("auth_key", JSON.stringify(res.data.Data.auth_key));
-      getAccount(res.data.Data.auth_key);
-      router.push(HOME);
-      console.log(res.data);
-    } catch (error) {
-      // Handle errors
-      return error;
-    }
-  };
+  // const handleLogin = async () => {
+  //   try {
+  //     const res = await axios.post(
+  //       process.env.NEXT_PUBLIC_MCLINIC_API_URL + "/medicalrecord/Login",
+  //       {
+  //         UserName: email,
+  //         Password: password,
+  //         RememberMe: true,
+  //         LanguageID: "00000000-0000-0000-0000-000000000001",
+  //         DeviceUUId: null,
+  //       },
+  //       {
+  //         headers: {
+  //           api_key: process.env.NEXT_PUBLIC_MCLINIC_API_KEY,
+  //         },
+  //       }
+  //     );
+  //     if (res.data.Success == false) {
+  //       toast.error(t(`Data.ErrorCode.${res.data.ErrorCode}`));
+  //       return;
+  //     }
+  //     localStorage.setItem("auth_key", JSON.stringify(res.data.Data.auth_key));
+  //     getAccount(res.data.Data.auth_key);
+  //     router.push(HOME);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     // Handle errors
+  //     return error;
+  //   }
+  // };
 
   return (
     <div>
@@ -133,7 +133,7 @@ export default function App() {
                 <Button
                   color="primary"
                   className="w-full"
-                  onClick={() => handleLogin()}
+                  // onClick={() => handleLogin()}
                 >
                   {t("Data.Login.ButtonLogin")}
                 </Button>

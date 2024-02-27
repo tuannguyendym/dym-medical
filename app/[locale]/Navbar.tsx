@@ -50,12 +50,11 @@ export default function App() {
 
   const [account, setAccount] = useState<string | null>("");
 
-  useEffect(() => {
-    setAccount(localStorage.getItem("account"));
-    console.log(account);
-  }, [account]);
+  // useEffect(() => {
+  //   setAccount(localStorage.getItem("account"));
+  //   console.log(account);
+  // }, [account]);
 
-  // locale == "vi" ? t("Data.Language.VI") : t("Data.Language.EN")
   const [selectedKeys, setSelectedKeys] = useState(new Set([locale]));
 
   const menuItems = [
@@ -251,9 +250,9 @@ export default function App() {
                 key="logout"
                 color="danger"
                 onClick={() => {
-                  setAccount("");
-                  localStorage.setItem("account", "");
-                  localStorage.setItem("auth_key", "");
+                  // setAccount("");
+                  // localStorage.setItem("account", "");
+                  // localStorage.setItem("auth_key", "");
                   router.push(LOGIN);
                 }}
               >
