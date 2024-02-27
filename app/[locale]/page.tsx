@@ -679,8 +679,8 @@ export default function App() {
             </svg>
             <blockquote>
               <p className="text-xl font-medium text-gray-900 md:text-2xl dark:text-white">
-                "Cung cấp dịch vụ chăm sóc y tế an toàn và quen thuộc để hỗ trợ
-                cuộc sống khỏe mạnh và trọn vẹn" - Đây là sứ mệnh của DYM.
+                Cung cấp dịch vụ chăm sóc y tế an toàn và quen thuộc để hỗ trợ
+                cuộc sống khỏe mạnh và trọn vẹn - Đây là sứ mệnh của DYM.
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -719,8 +719,8 @@ export default function App() {
                 Best option for personal use & for your next project.
               </p>
               <div className="flex items-baseline justify-center my-8">
-                <span className="mr-2 text-5xl font-extrabold">$29</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
+                <span className="mr-2 text-5xl font-extrabold">29</span>
+                <span className="text-gray-500 dark:text-gray-400">month</span>
               </div>
               <ul role="list" className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
@@ -821,8 +821,8 @@ export default function App() {
                 Relevant for multiple users, extended & premium support.
               </p>
               <div className="flex items-baseline justify-center my-8">
-                <span className="mr-2 text-5xl font-extrabold">$99</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
+                <span className="mr-2 text-5xl font-extrabold">99</span>
+                <span className="text-gray-500 dark:text-gray-400">month</span>
               </div>
               <ul role="list" className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
@@ -923,8 +923,8 @@ export default function App() {
                 Best for large scale uses and extended redistribution rights.
               </p>
               <div className="flex items-baseline justify-center my-8">
-                <span className="mr-2 text-5xl font-extrabold">$499</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
+                <span className="mr-2 text-5xl font-extrabold">499</span>
+                <span className="text-gray-500 dark:text-gray-400">month</span>
               </div>
               <ul role="list" className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
@@ -1246,7 +1246,7 @@ export default function App() {
                   </p>
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     Vui lòng không giao hợp, thụt rửa âm đạo hay đặt thuốc âm
-                    đạo ít nhất 2 - 3 ngày để kết quả pap's smear (phết tết bào
+                    đạo ít nhất 2 - 3 ngày để kết quả Paps smear (phết tết bào
                     cổ tử cung) được chính xác.
                   </p>
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
@@ -1549,7 +1549,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-      <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     </div>
   );
 }
