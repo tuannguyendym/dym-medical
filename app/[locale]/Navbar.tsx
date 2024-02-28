@@ -15,6 +15,8 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Avatar,
+  Accordion,
+  AccordionItem,
 } from "@nextui-org/react";
 import {
   ChevronDown,
@@ -25,7 +27,6 @@ import {
   TagUser,
   Scale,
 } from "./components/Icons";
-import { AcmeLogo } from "./components/AcmeLogo";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
 import { LOGIN, REGISTER } from "@/route";
@@ -56,19 +57,6 @@ export default function App() {
   // }, [account]);
 
   const [selectedKeys, setSelectedKeys] = useState(new Set([locale]));
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   const icons = {
     chevron: (
@@ -143,8 +131,11 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">DYM</p>
+          <Link href="/">
+            <img src="/dym.png" className="h-10" />
+          </Link>
+          {/* <AcmeLogo /> */}
+          {/* <p className="font-bold text-inherit">DYM</p> */}
         </NavbarBrand>
       </NavbarContent>
 
@@ -154,12 +145,12 @@ export default function App() {
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                className="p-0 bg-transparent data-[hover=true]:bg-transparent text-md"
                 endContent={icons.chevron}
                 radius="sm"
                 variant="light"
               >
-                Features
+                Giới thiệu
               </Button>
             </DropdownTrigger>
           </NavbarItem>
@@ -172,49 +163,49 @@ export default function App() {
           >
             <DropdownItem
               key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
+              // description="ACME scales apps to meet user demand, automagically, based on load."
               startContent={icons.scale}
             >
-              Autoscaling
+              Câu chuyện DYM
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
-              description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+              // description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               startContent={icons.activity}
             >
-              Usage Metrics
+              Cơ sở vật chất
             </DropdownItem>
             <DropdownItem
               key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
+              // description="ACME runs on ACME, join us and others serving requests at web scale."
               startContent={icons.flash}
             >
-              Production Ready
+              Thời gian làm việc
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
-              description="Applications stay on the grid with high availability and high uptime guarantees."
+              // description="Applications stay on the grid with high availability and high uptime guarantees."
               startContent={icons.server}
             >
-              +99% Uptime
+              Bảng giá dịch vụ
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
-              description="Overcome any challenge with a supporting team ready to respond."
+              // description="Overcome any challenge with a supporting team ready to respond."
               startContent={icons.user}
             >
-              +Supreme Support
+              Giấy phép làm việc
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+        <NavbarItem>
+          <Link href="#" color="foreground">
+            Liên hệ
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link href="#" color="foreground">
+            Tin tức
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -275,24 +266,41 @@ export default function App() {
       )}
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
+        <Accordion>
+          <AccordionItem key="1" aria-label="Giới thiệu" title="Giới thiệu">
+            <Link className="w-full py-1" href="#" size="lg" color="foreground">
+              Câu chuyện DYM
             </Link>
-          </NavbarMenuItem>
-        ))}
+            <Link className="w-full py-1" href="#" size="lg" color="foreground">
+              Cơ sở vật chất
+            </Link>
+            <Link className="w-full py-1" href="#" size="lg" color="foreground">
+              Thời gian làm việc
+            </Link>
+            <Link className="w-full py-1" href="#" size="lg" color="foreground">
+              Bảng giá dịch vụ
+            </Link>
+            <Link className="w-full py-1" href="#" size="lg" color="foreground">
+              Giấy phép làm việc
+            </Link>
+          </AccordionItem>
+        </Accordion>
+        <Link
+          className="w-full px-2 py-3"
+          href="#"
+          size="lg"
+          color="foreground"
+        >
+          Liên hệ
+        </Link>
+        <Link
+          className="w-full px-2 py-3"
+          href="#"
+          size="lg"
+          color="foreground"
+        >
+          Tin tức
+        </Link>
       </NavbarMenu>
 
       <Dropdown>
