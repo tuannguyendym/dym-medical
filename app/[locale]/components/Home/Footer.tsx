@@ -248,7 +248,7 @@ export default function Footer() {
             className="flex items-center justify-center mt-5"
             href="http://online.gov.vn/Home/WebDetails/87847"
           >
-            <img alt="gov" src="./logoSaleNoti.png" width={200} />
+            <img alt="gov" src="/logoSaleNoti.png" width={200} />
           </a>
         </div>
       </div>

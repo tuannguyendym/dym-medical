@@ -166,35 +166,35 @@ export default function App() {
               // description="ACME scales apps to meet user demand, automagically, based on load."
               startContent={icons.scale}
             >
-              Câu chuyện DYM
+              <Link className="text-black dark:text-white" href="/story">Câu chuyện DYM</Link>
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
               // description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               startContent={icons.activity}
             >
-              Cơ sở vật chất
+              <Link className="text-black dark:text-white" href="#">Cơ sở vật chất</Link>
             </DropdownItem>
             <DropdownItem
               key="production_ready"
               // description="ACME runs on ACME, join us and others serving requests at web scale."
               startContent={icons.flash}
             >
-              Thời gian làm việc
+              <Link className="text-black dark:text-white" href="#">Thời gian làm việc</Link>
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
               // description="Applications stay on the grid with high availability and high uptime guarantees."
               startContent={icons.server}
             >
-              Bảng giá dịch vụ
+              <Link className="text-black dark:text-white" href="#">Bảng giá dịch vụ</Link>
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
               // description="Overcome any challenge with a supporting team ready to respond."
               startContent={icons.user}
             >
-              Giấy phép làm việc
+              <Link className="text-black dark:text-white" href="#">Giấy phép làm việc</Link>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -268,7 +268,12 @@ export default function App() {
       <NavbarMenu>
         <Accordion>
           <AccordionItem key="1" aria-label="Giới thiệu" title="Giới thiệu">
-            <Link className="w-full py-1" href="#" size="lg" color="foreground">
+            <Link
+              className="w-full py-1"
+              href="/story"
+              size="lg"
+              color="foreground"
+            >
               Câu chuyện DYM
             </Link>
             <Link className="w-full py-1" href="#" size="lg" color="foreground">
