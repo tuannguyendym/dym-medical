@@ -1,8 +1,12 @@
 "use client";
+import { Accordion, AccordionItem } from "@nextui-org/react";
 
 import Navbar from "./Navbar";
 
 export default function App() {
+  const defaultContent =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+
   return (
     <div>
       <Navbar />
@@ -1028,81 +1032,25 @@ export default function App() {
             Câu hỏi thường gặp
           </h2>
           <div className="max-w-screen-md mx-auto">
-            <div
-              id="accordion-flush"
-              data-accordion="collapse"
-              data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-              data-inactive-classes="text-gray-500 dark:text-gray-400"
-            >
-              <h3 id="accordion-flush-heading-1">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
-                  data-accordion-target="#accordion-flush-body-1"
-                  aria-expanded="true"
-                  aria-controls="accordion-flush-body-1"
-                >
-                  <span>Có thể thanh toán bằng thẻ tín dụng được không?</span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 rotate-180 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-1"
-                className=""
-                aria-labelledby="accordion-flush-heading-1"
+            <Accordion selectionMode="multiple">
+              <AccordionItem
+                key="1"
+                aria-label="Có thể thanh toán bằng thẻ tín dụng được không?"
+                title="Có thể thanh toán bằng thẻ tín dụng được không?"
               >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
+                <div className="py-1">
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     Có, bạn có thể thanh toán bằng thẻ VISA, MASTER, JCB và
                     UnionPay.
                   </p>
                 </div>
-              </div>
-
-              <h3 id="accordion-flush-heading-2">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-2"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-2"
-                >
-                  <span>
-                    Cần lưu ý gì trước khi đi khám sức khoẻ tổng quát?
-                  </span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-2"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-2"
+              </AccordionItem>
+              <AccordionItem
+                key="2"
+                aria-label="Cần lưu ý gì trước khi đi khám sức khoẻ tổng quát?"
+                title="Cần lưu ý gì trước khi đi khám sức khoẻ tổng quát?"
               >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
+                <div className="py-1">
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     Vui lòng chuẩn bị các thông tin về tiền sử bệnh lý bản thân
                     và gia đình (nếu có)
@@ -1128,117 +1076,39 @@ export default function App() {
                     nghiệm được chính xác.
                   </p>
                 </div>
-              </div>
-
-              <h3 id="accordion-flush-heading-3">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-3"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-3"
-                >
-                  <span>
-                    Tôi có thể gửi hóa đơn cho công ty về chi phí điều trị
-                    không?
-                  </span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-3"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-3"
+              </AccordionItem>
+              <AccordionItem
+                key="3"
+                aria-label="Tôi có thể gửi hóa đơn cho công ty về chi phí điều trị không?"
+                title="Tôi có thể gửi hóa đơn cho công ty về chi phí điều trị không?"
               >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
+                <div className="py-1">
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     Nếu có hợp đồng giữa phòng khám DYM và công ty mà bạn làm
                     việc, bạn có thể gửi hóa đơn cho công ty. Ngoài ra, bạn vui
                     lòng cung cấp thông tin xuất hóa đơn đỏ tại quầy lễ tân.
                   </p>
                 </div>
-              </div>
-
-              <h3 id="accordion-flush-heading-4">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-4"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-4"
-                >
-                  <span>Có bãi đậu xe không?</span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-4"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-4"
+              </AccordionItem>
+              <AccordionItem
+                key="4"
+                aria-label="Có bãi đậu xe không?"
+                title="Có bãi đậu xe không?"
               >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
+                <div className="py-1">
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     Có. Quý khách khám tại cơ sở Quận 1, vui lòng gửi xe dưới
                     tầng hầm của Mplaza Sài Gòn. Phòng khám DYM hỗ trợ gửi xe
                     miễn phí chỉ đối với xe máy.
                   </p>
                 </div>
-              </div>
-
-              <h3 id="accordion-flush-heading-5">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-5"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-5"
-                >
-                  <span>Nữ giới cần chuẩn bị gì trước khi đi khám?</span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-5"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-5"
+              </AccordionItem>
+              <AccordionItem
+                key="5"
+                aria-label="Nữ giới cần chuẩn bị gì trước khi đi khám?"
+                title="Nữ giới cần chuẩn bị gì trước khi đi khám?"
               >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
+                <div className="py-1">
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     Vui lòng chờ đến khi sạch kinh ít nhất 3 - 5 ngày trước khi
                     đến khám để đảm bảo chất lượng buổi khám phụ khoa và kết quả
@@ -1269,8 +1139,8 @@ export default function App() {
                     da dưới cánh tay hoặc ngực nếu bạn thực hiện nhũ ảnh.
                   </p>
                 </div>
-              </div>
-            </div>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
@@ -1540,11 +1410,7 @@ export default function App() {
               className="flex items-center justify-center mt-5"
               href="http://online.gov.vn/Home/WebDetails/87847"
             >
-              <img
-                alt="gov"
-                src="./logoSaleNoti.png"
-                width={200}
-              />
+              <img alt="gov" src="./logoSaleNoti.png" width={200} />
             </a>
           </div>
         </div>
