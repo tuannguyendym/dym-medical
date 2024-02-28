@@ -1,51 +1,94 @@
 export default function OurCustomer() {
     return (
         <section className="bg-white dark:bg-gray-900">
-        <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
+        <div className="max-w-screen-xl px-4 pb-8 mx-auto">
           <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
-            <a href="#" className="flex items-center lg:justify-center">
+            <div className="flex items-center justify-center">
               <img
-                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                src="https://upload.wikimedia.org/wikipedia/commons/7/72/Ajinomoto_global_logo.svg"
-                alt="Ajinomoto"
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/ajinomoto.svg"
+                alt="ajinomoto"
               />
-            </a>
-            <a href="#" className="flex items-center lg:justify-center">
+            </div>
+            <div className="flex items-center justify-center">
               <img
-                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Logo_Bayer.svg"
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/bayer.svg"
                 alt="bayer"
               />
-            </a>
-            <a href="#" className="flex items-center lg:justify-center">
+            </div>
+            <div className="flex items-center justify-center">
               <img
-                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                src="https://upload.wikimedia.org/wikipedia/commons/9/92/UNIQLO_logo.svg"
-                alt="UNIQLO"
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/uniqlo.svg"
+                alt="uniqlo"
               />
-            </a>
-            <a href="#" className="flex items-center lg:justify-center">
+            </div>
+            <div className="flex items-center justify-center">
               <img
-                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/69/Logo_BIDV.svg"
-                alt="BIDV"
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/bidv.svg"
+                alt="bidv"
               />
-            </a>
-            <a href="#" className="flex items-center lg:justify-center">
+            </div>
+            <div className="flex items-center justify-center">
               <img
-                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Mitsubishi_motors_new_logo.svg"
-                alt="Mitsubishi_motors"
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/mitsubishi_motors.svg"
+                alt="mitsubishi_motors"
               />
-            </a>
-            <a href="#" className="flex items-center lg:justify-center">
+            </div>
+            <div className="flex items-center justify-center">
               <img
-                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/All_Nippon_Airways_Logo.svg"
-                alt="All_Nippon_Airways"
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/all_nippon_airways.svg"
+                alt="all_nippon_airways"
               />
-            </a>
-            <a href="#" className="flex items-center lg:justify-center">
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/smc.svg"
+                alt="smc"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/4ps.svg"
+                alt="4ps"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/talentnet.svg"
+                alt="talentnet"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/mega_market.svg"
+                alt="mega_market"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/vas_quoc_te_viet_uc.svg"
+                alt="vas_quoc_te_viet_uc"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                className="max-h-16 max-w-32 hover:text-gray-900 dark:hover:text-white"
+                src="/vng.svg"
+                alt="vng"
+              />
+            </div>
+
+            {/* <a href="#" className="flex items-center lg:justify-center">
               <svg
                 className="h-9 hover:text-gray-900 dark:hover:text-white"
                 viewBox="0 0 125 35"
@@ -100,7 +143,6 @@ export default function OurCustomer() {
                 </defs>
               </svg>
             </a>
-
             <a href="#" className="flex items-center lg:justify-center">
               <svg
                 className="h-9 hover:text-gray-900 dark:hover:text-white"
@@ -251,7 +293,7 @@ export default function OurCustomer() {
                   fill="currentColor"
                 />
               </svg>
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
