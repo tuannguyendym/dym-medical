@@ -1542,7 +1542,7 @@ export default function App() {
             >
               <img
                 alt="gov"
-                src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
+                src="./logoSaleNoti.png"
                 width={200}
               />
             </a>
