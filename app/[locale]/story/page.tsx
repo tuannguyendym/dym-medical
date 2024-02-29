@@ -1,13 +1,11 @@
 "use client";
 
+import { HOME } from "@/route";
 import { BreadcrumbItem, Breadcrumbs, Link } from "@nextui-org/react";
-import Navbar from "../Navbar";
-import Footer from "../components/Home/Footer";
 
 export default function App() {
   return (
     <div>
-      <Navbar />
       <div className="relative isolate overflow-hidden bg-white px-6 py-4 lg:overflow-visible lg:px-0">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
@@ -46,7 +44,9 @@ export default function App() {
               <div className="lg:max-w-lg">
                 <Breadcrumbs className="py-2">
                   <BreadcrumbItem>
-                    <Link href="/" className="text-gray-500 text-md">Trang chủ</Link>
+                    <Link href={HOME} className="text-gray-500 text-md">
+                      Trang chủ
+                    </Link>
                   </BreadcrumbItem>
                   <BreadcrumbItem>Câu chuyện từ nhà sáng lập</BreadcrumbItem>
                 </Breadcrumbs>
@@ -106,7 +106,6 @@ export default function App() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

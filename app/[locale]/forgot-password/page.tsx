@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Button, Input, Link } from "@nextui-org/react";
-import Navbar from "../Navbar";
 import { useTranslations } from "next-intl";
 import { LOGIN, REGISTER } from "@/route";
 
@@ -13,7 +12,6 @@ export default function App() {
 
   return (
     <div className="">
-      <Navbar />
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

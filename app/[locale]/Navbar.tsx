@@ -29,7 +29,7 @@ import {
 } from "./components/Icons";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
-import { LOGIN, REGISTER } from "@/route";
+import { BRANCH, HOME, LOGIN, REGISTER, STORY } from "@/route";
 
 export default function App() {
   const t = useTranslations();
@@ -131,7 +131,7 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/">
+          <Link href={HOME}>
             <img src="/dym.png" className="h-10" />
           </Link>
           {/* <AcmeLogo /> */}
@@ -166,35 +166,45 @@ export default function App() {
               // description="ACME scales apps to meet user demand, automagically, based on load."
               startContent={icons.scale}
             >
-              <Link className="text-black dark:text-white" href="/story">Câu chuyện DYM</Link>
+              <Link className="text-black dark:text-white" href={STORY}>
+                Câu chuyện DYM
+              </Link>
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
               // description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               startContent={icons.activity}
             >
-              <Link className="text-black dark:text-white" href="#">Cơ sở vật chất</Link>
+              <Link className="text-black dark:text-white" href={BRANCH}>
+                Hệ thống phòng khám
+              </Link>
             </DropdownItem>
             <DropdownItem
               key="production_ready"
               // description="ACME runs on ACME, join us and others serving requests at web scale."
               startContent={icons.flash}
             >
-              <Link className="text-black dark:text-white" href="#">Thời gian làm việc</Link>
+              <Link className="text-black dark:text-white" href="#">
+                Thời gian làm việc
+              </Link>
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
               // description="Applications stay on the grid with high availability and high uptime guarantees."
               startContent={icons.server}
             >
-              <Link className="text-black dark:text-white" href="#">Bảng giá dịch vụ</Link>
+              <Link className="text-black dark:text-white" href="#">
+                Bảng giá dịch vụ
+              </Link>
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
               // description="Overcome any challenge with a supporting team ready to respond."
               startContent={icons.user}
             >
-              <Link className="text-black dark:text-white" href="#">Giấy phép làm việc</Link>
+              <Link className="text-black dark:text-white" href="#">
+                Giấy phép làm việc
+              </Link>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -270,14 +280,19 @@ export default function App() {
           <AccordionItem key="1" aria-label="Giới thiệu" title="Giới thiệu">
             <Link
               className="w-full py-1"
-              href="/story"
+              href={STORY}
               size="lg"
               color="foreground"
             >
               Câu chuyện DYM
             </Link>
-            <Link className="w-full py-1" href="#" size="lg" color="foreground">
-              Cơ sở vật chất
+            <Link
+              className="w-full py-1"
+              href={BRANCH}
+              size="lg"
+              color="foreground"
+            >
+              Hệ thống phòng khám
             </Link>
             <Link className="w-full py-1" href="#" size="lg" color="foreground">
               Thời gian làm việc

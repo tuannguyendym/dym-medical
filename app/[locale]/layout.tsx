@@ -7,6 +7,8 @@ import { Providers } from "./providers";
 import { notFound } from "next/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import Navbar from "./Navbar";
+import Footer from "./components/Home/Footer";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -34,7 +36,9 @@ export default async function RootLayout({
           now={new Date()}
         >
           <Providers>
+            <Navbar />
             {children}
+            <Footer />
             <ToastContainer />
             <SpeedInsights />
             <Analytics />
