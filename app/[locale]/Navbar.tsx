@@ -26,7 +26,7 @@ import {
   Server,
   TagUser,
   Scale,
-} from "./components/Icons";
+} from "./components/svg/Icons";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
 import { BRANCH, HOME, LOGIN, REGISTER, STORY } from "@/route";
@@ -165,46 +165,43 @@ export default function App() {
               key="autoscaling"
               // description="ACME scales apps to meet user demand, automagically, based on load."
               startContent={icons.scale}
+              onClick={() => router.push(STORY)}
+              className="text-black dark:text-white"
             >
-              <Link className="text-black dark:text-white" href={STORY}>
-                Câu chuyện DYM
-              </Link>
+              Câu chuyện DYM
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
               // description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               startContent={icons.activity}
+              onClick={() => router.push(BRANCH)}
+              className="text-black dark:text-white"
             >
-              <Link className="text-black dark:text-white" href={BRANCH}>
-                Hệ thống phòng khám
-              </Link>
+              Hệ thống phòng khám
             </DropdownItem>
             <DropdownItem
               key="production_ready"
               // description="ACME runs on ACME, join us and others serving requests at web scale."
               startContent={icons.flash}
+              className="text-black dark:text-white"
             >
-              <Link className="text-black dark:text-white" href="#">
-                Thời gian làm việc
-              </Link>
+              Thời gian làm việc
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
               // description="Applications stay on the grid with high availability and high uptime guarantees."
               startContent={icons.server}
+              className="text-black dark:text-white"
             >
-              <Link className="text-black dark:text-white" href="#">
-                Bảng giá dịch vụ
-              </Link>
+              Bảng giá dịch vụ
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
               // description="Overcome any challenge with a supporting team ready to respond."
               startContent={icons.user}
+              className="text-black dark:text-white"
             >
-              <Link className="text-black dark:text-white" href="#">
-                Giấy phép làm việc
-              </Link>
+              Giấy phép làm việc
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
