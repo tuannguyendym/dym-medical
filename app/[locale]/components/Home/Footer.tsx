@@ -1,6 +1,15 @@
+"use client";
 import { ANDROID, IOS } from "@/route";
+import MapModal from "./MapModal";
+import { useDisclosure } from "@nextui-org/react";
+import { useState } from "react";
 
 export default function Footer() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [modalTitle, setModalTitle] = useState("");
+  const [mapSrc, setMapSrc] = useState("");
+  const [mapUrl, setMapUrl] = useState("");
+
   return (
     <footer className="bg-white dark:bg-gray-800">
       <div className="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
@@ -95,19 +104,60 @@ export default function Footer() {
             </h3>
             <ul className=" text-gray-500 dark:text-gray-400">
               <li className="flex mb-4">
-                CN Quận 1: Phòng B103, Tầng hầm 1, tòa nhà mPlaza Saigon, số 39
-                Lê Duẩn, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt
-                Nam
+                <a className="cursor-pointer"
+                  onClick={() => {
+                    setModalTitle("CN Quận 1");
+                    setMapSrc(
+                      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15677.557267381293!2d106.7001032!3d10.7814649!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752feab9a946c7%3A0xccda3491fb2b5d98!2zUGjDsm5nIEtow6FtIMSQYSBLaG9hIFF14buRYyBU4bq_IERZTSBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1709361359976!5m2!1svi!2s"
+                    );
+                    setMapUrl("https://maps.app.goo.gl/XFYa1PXBaj6TCJj28");
+                    onOpen();
+                  }}
+                >
+                  CN Quận 1: Phòng B103, Tầng hầm 1, tòa nhà mPlaza Saigon, số
+                  39 Lê Duẩn, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh,
+                  Việt Nam
+                </a>
               </li>
               <li className="flex mb-4">
-                CN Quận 7: Phòng 3A01, Tầng 3A, Tòa nhà The Grace, 71 Hoàng Văn
-                Thái, Khu phố 1, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh
+                <a className="cursor-pointer"
+                  onClick={() => {
+                    setModalTitle("CN Quận 7");
+                    setMapSrc(
+                      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15680.19058756734!2d106.7235497!3d10.7308086!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175251a039aadf1%3A0x87312c23f09a3749!2sDYM%20Medical%20Center%20Phu%20My%20Hung!5e0!3m2!1svi!2s!4v1709363421228!5m2!1svi!2s"
+                    );
+                    setMapUrl("https://maps.app.goo.gl/Ryt83LZjZjd4QkiA6");
+                    onOpen();
+                  }}
+                >
+                  CN Quận 7: Phòng 3A01, Tầng 3A, Tòa nhà The Grace, 71 Hoàng
+                  Văn Thái, Khu phố 1, Phường Tân Phú, Quận 7, Thành phố Hồ Chí
+                  Minh
+                </a>
               </li>
               <li className="flex mb-4">
-                CN Hà Nội: Tầng hầm B1, tòa Epic Tower, ngõ 19 Duy Tân, Phường
-                Mỹ Đình 2, Quận Nam Từ Liêm, Thủ Đô Hà Nội
+                <a className="cursor-pointer"
+                  onClick={() => {
+                    setModalTitle("CN Hà Nội");
+                    setMapSrc(
+                      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14896.232005611902!2d105.7815076!3d21.0303651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455002a968a15%3A0xb302ba205f90ac7c!2zUGjDsm5nIEtow6FtIMSQYSBLaG9hIERZTSBNZWRpY2FsIENlbnRlciBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1709363642776!5m2!1svi!2s"
+                    );
+                    setMapUrl("https://maps.app.goo.gl/Wz2R5mVPoZFnHiPe8");
+                    onOpen();
+                  }}
+                >
+                  CN Hà Nội: Tầng hầm B1, tòa Epic Tower, ngõ 19 Duy Tân, Phường
+                  Mỹ Đình 2, Quận Nam Từ Liêm, Thủ Đô Hà Nội
+                </a>
               </li>
             </ul>
+            <MapModal
+              isOpen={isOpen}
+              onOpenChange={onOpenChange}
+              modalTitle={modalTitle}
+              mapSrc={mapSrc}
+              mapUrl={mapUrl}
+            />
           </div>
           <div>
             <a
