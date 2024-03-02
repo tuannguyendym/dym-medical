@@ -1,7 +1,7 @@
 "use client";
-import { ANDROID, IOS } from "@/route";
+import { ANDROID, HOME, IOS } from "@/route";
 import MapModal from "./MapModal";
-import { useDisclosure } from "@nextui-org/react";
+import { Link, useDisclosure } from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Footer() {
@@ -160,12 +160,12 @@ export default function Footer() {
             />
           </div>
           <div>
-            <a
-              href="#"
+            <Link
+              href={HOME}
               className="flex mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
             >
-              <img src="/dym.svg" className="h-10" alt="DYM Logo" />
-            </a>
+              <img src="/dym.svg" className="h-10 w-fit" alt="DYM Logo" />
+            </Link>
             <ul className="flex space-x-5 mb-5">
               <li>
                 <a

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Checkbox } from "@nextui-org/react";
+import { BreadcrumbItem, Breadcrumbs, Checkbox, Link } from "@nextui-org/react";
+import { HOME } from "@/route";
 
 export default function Contact() {
   const [isSelectedPhone, setIsSelectedPhone] = useState(false);
