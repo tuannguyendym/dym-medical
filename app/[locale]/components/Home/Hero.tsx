@@ -24,7 +24,7 @@ export default function Hero() {
           </p>
           <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
             <a
-              href="https://github.com/themesberg/landwind"
+              href="#"
               className="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
             >
               Đặt lịch
@@ -38,10 +38,11 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <div className="mt-5 lg:mt-0 lg:col-span-5 flex justify-center items-center">
           <img
-            src="https://dymmedicalcenter.com.vn/wp-content/uploads/2024/01/img27.png"
+            src="/our_branchs.jpg"
             alt="hero image"
+            className="w-full h-fit rounded-lg"
           />
         </div>
       </div>

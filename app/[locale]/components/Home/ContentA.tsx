@@ -77,14 +77,14 @@ export default function ContentA() {
             </p>
           </div>
           <img
-            className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            className="w-full mb-4 rounded-lg lg:mb-0 flex"
             src="https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-04.jpg"
             alt="dashboard feature image"
           />
         </div>
-        <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+        <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16 flex flex-col-reverse">
           <img
-            className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            className="w-full mb-4 rounded-lg lg:mb-0"
             src="https://dymmedicalcenter.com.vn/wp-content/uploads/2020/10/MEO00255-scaled.jpg"
             alt="feature image 2"
           />
