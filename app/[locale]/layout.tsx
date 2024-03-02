@@ -9,6 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./Navbar";
 import Footer from "./components/Home/Footer";
+import MetaTags from "./metaTags";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -28,6 +29,9 @@ export default async function RootLayout({
 
   return (
     <html lang={params.locale}>
+      <link rel="icon" href="/dym_icon.svg" sizes="any" />
+      <MetaTags />
+
       <body>
         <NextIntlProvider
           locale={params.locale}

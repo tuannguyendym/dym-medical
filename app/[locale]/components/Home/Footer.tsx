@@ -140,7 +140,7 @@ export default function Footer() {
             href="#"
             className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <img src="/dym.png" className="h-6 mr-3 sm:h-9" alt="DYM Logo" />
+            <img src="/dym.svg" className="h-6 mr-3 sm:h-9" alt="DYM Logo" />
           </a>
           <span className="block text-sm text-center text-gray-500 dark:text-gray-400">
             © 2020-2024 DYM. All Rights Reserved.
