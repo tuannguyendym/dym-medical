@@ -41,7 +41,7 @@ export default async function RootLayout({
         >
           <Providers>
             <Navbar />
-            {children}
+            <div className="max-w-screen-xl mx-auto">{children}</div>
             <Footer />
             <ToastContainer />
             <SpeedInsights />

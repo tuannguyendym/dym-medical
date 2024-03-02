@@ -29,7 +29,7 @@ import {
 } from "./components/svg/Icons";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
-import { BRANCH, HOME, LOGIN, REGISTER, STORY } from "@/route";
+import { BRANCH, CONTACT, HOME, LOGIN, REGISTER, STORY } from "@/route";
 
 export default function App() {
   const t = useTranslations();
@@ -206,7 +206,7 @@ export default function App() {
           </DropdownMenu>
         </Dropdown>
         <NavbarItem>
-          <Link href="#" color="foreground">
+          <Link href={CONTACT} color="foreground">
             Liên hệ
           </Link>
         </NavbarItem>
@@ -304,7 +304,7 @@ export default function App() {
         </Accordion>
         <Link
           className="w-full px-2 py-3"
-          href="#"
+          href={CONTACT}
           size="lg"
           color="foreground"
         >
