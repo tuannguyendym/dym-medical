@@ -4,7 +4,7 @@ import { Button, Input, Link } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { FORGOTPASSWORD, HOME, REGISTER } from "../../../route";
+import { FORGOT_PASSWORD, HOME, REGISTER } from "../../../route";
 import { useRouter } from "next/navigation";
 
 export default function App() {
@@ -122,7 +122,7 @@ export default function App() {
                       </label>
                     </div>
                   </div>
-                  <Link href={FORGOTPASSWORD}>
+                  <Link href={FORGOT_PASSWORD}>
                     <p className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
                       {t("Data.Login.ButtonForgotPassword")}
                     </p>
