@@ -124,7 +124,7 @@ export default function App() {
   };
 
   return (
-    <Navbar>
+    <Navbar maxWidth="xl">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
