@@ -8,6 +8,7 @@ module.exports = {
   BOOKING_HCM_D1: "/booking/hcm/d1",
   BOOKING_HCM_D7: "/booking/hcm/d7",
   BOOKING_HN_NTL: "/booking/hcm/ntl",
+  APPOINTMENT: "/booking/appointment",
   STORY: "/story",
   CONTACT: "/contact",
   ANDROID: "https://play.google.com/store/apps/details?id=com.dym.medical",

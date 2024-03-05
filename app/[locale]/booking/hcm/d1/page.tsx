@@ -1,5 +1,5 @@
 "use client";
-import { BOOKING, HOME } from "@/route";
+import { APPOINTMENT, BOOKING, HOME } from "@/route";
 import {
   Accordion,
   AccordionItem,
@@ -290,53 +290,6 @@ export default function BookingHCMD1() {
             Chọn loại dịch vụ
           </h2>
 
-          {/* <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {products.map((product, key) => (
-              <div key={key} className="group relative">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                  <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="h-full w-full p-5"
-                  />
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-gray-700">
-                    <a href={product.href}>{product.name}</a>
-                  </h3>
-                  <p className="font-medium text-gray-900">{product.price}</p>
-                </div>
-                <Accordion>
-                  <AccordionItem
-                    key="1"
-                    aria-label="Xem chi tiết"
-                    title="Xem chi tiết"
-                  >
-                    {product.content}
-                  </AccordionItem>
-                </Accordion>
-                <Button
-                  color="primary"
-                  className="mt-3"
-                  onClick={() => {
-                    setIsOpen(true);
-                    if (key == 0) {
-                      setTypeOfServices(outpatientServices);
-                    } else if (key == 1) {
-                      setTypeOfServices(japaneseHC);
-                    } else if (key == 2) {
-                      setTypeOfServices(vietnameseHC);
-                    } else if (key == 3) {
-                      setTypeOfServices(wpHC);
-                    }
-                  }}
-                >
-                  Xem chi tiết
-                </Button>
-              </div>
-            ))}
-          </div> */}
-
           <Accordion>
             <AccordionItem
               key="1"
@@ -346,7 +299,7 @@ export default function BookingHCMD1() {
               <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {outpatientServices.map((product, key) => (
                   <div key={key} className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <div className="aspect-h-1 aspect-w-1 w-60 h-60 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -370,9 +323,12 @@ export default function BookingHCMD1() {
                         {product.content}
                       </AccordionItem>
                     </Accordion>
-                    <Button color="danger" className="mt-3">
+                    <Link
+                      href={APPOINTMENT}
+                      className="mx-1 py-2 px-4 bg-blue-500 text-white rounded-xl"
+                    >
                       Đặt lịch khám
-                    </Button>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -385,7 +341,7 @@ export default function BookingHCMD1() {
               <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {japaneseHC.map((product, key) => (
                   <div key={key} className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <div className="aspect-h-1 aspect-w-1 w-60 h-60 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -424,7 +380,7 @@ export default function BookingHCMD1() {
               <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {vietnameseHC.map((product, key) => (
                   <div key={key} className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <div className="aspect-h-1 aspect-w-1 w-60 h-60 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -463,7 +419,7 @@ export default function BookingHCMD1() {
               <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {wpHC.map((product, key) => (
                   <div key={key} className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <div className="aspect-h-1 aspect-w-1 w-60 h-60 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75">
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -500,7 +456,7 @@ export default function BookingHCMD1() {
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {typeOfServices.map((product, key) => (
                 <div key={key} className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                  <div className="aspect-h-1 aspect-w-1 w-60 h-60 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
