@@ -47,20 +47,20 @@ export default function CarouselComponent({ idCarousel, images }: Props) {
             <div
               key={index}
               className="relative float-left -mr-[100%] 
-              w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+              w-full max-h-[400px] transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
               data-te-carousel-item
               data-te-carousel-active
             >
-              <img src={value} className="block w-full rounded-lg" alt="" />
+              <img src={value} className="rounded-lg" alt="" />
             </div>
           ) : (
             <div
               key={index}
               className="relative float-left -mr-[100%] hidden
-              w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+              w-full max-h-[400px] transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
               data-te-carousel-item
             >
-              <img src={value} className="block w-full rounded-lg" alt="" />
+              <img src={value} className="rounded-lg" alt="" />
             </div>
           )
         )}
