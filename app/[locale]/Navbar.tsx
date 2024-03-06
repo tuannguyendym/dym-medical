@@ -150,7 +150,7 @@ export default function App() {
                 radius="sm"
                 variant="light"
               >
-                Giới thiệu
+                {t("UI.Navbar.Introduce")}
               </Button>
             </DropdownTrigger>
           </NavbarItem>
@@ -168,7 +168,7 @@ export default function App() {
               onClick={() => router.push(STORY)}
               className="text-black dark:text-white"
             >
-              Câu chuyện DYM
+              {t("UI.Navbar.DYMStory")}
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
@@ -177,7 +177,7 @@ export default function App() {
               onClick={() => router.push(BRANCH)}
               className="text-black dark:text-white"
             >
-              Hệ thống phòng khám
+              {t("UI.Navbar.OurBranch")}
             </DropdownItem>
             <DropdownItem
               key="production_ready"
@@ -185,7 +185,7 @@ export default function App() {
               startContent={icons.flash}
               className="text-black dark:text-white"
             >
-              Thời gian làm việc
+              {t("UI.Navbar.WorkingTime")}
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
@@ -193,7 +193,7 @@ export default function App() {
               startContent={icons.server}
               className="text-black dark:text-white"
             >
-              Bảng giá dịch vụ
+              {t("UI.Navbar.ServicePriceList")}
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
@@ -201,18 +201,18 @@ export default function App() {
               startContent={icons.user}
               className="text-black dark:text-white"
             >
-              Giấy phép làm việc
+              {t("UI.Navbar.License")}
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
         <NavbarItem>
           <Link href={CONTACT} color="foreground">
-            Liên hệ
+            {t("UI.Navbar.Contact")}
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link href="#" color="foreground">
-            Tin tức
+            {t("UI.Navbar.News")}
           </Link>
         </NavbarItem>
       </NavbarContent>

@@ -30,6 +30,28 @@
     "gender": "Gender",
     "submit": "Submit"
   },
+  "UI": {
+    "Navbar": {
+      "Introduce": "Introduce",
+      "DYMStory": "DYM Story",
+      "OurBranch": "Our Branch",
+      "WorkingTime": "Working Time",
+      "ServicePriceList": "Service Price List",
+      "License": "License",
+      "Contact": "Contact",
+      "News": "News"
+    },
+    "Home": {
+      "Hero": {
+        "Title": "DYM MEDICAL CENTER VIETNAM",
+        "P1": "Our clinic is a medical institution in Vietnam operated by a Japanese company. We open 3 clinics, Ho Chi Minh city District 1, District 7, Hanoi City District Nam Tu Liem.",
+        "P2": "Our Japanese-speaking staff will be very attentive to your needs. You can understand your symptoms and treatment details without worrying about the language barrier.",
+        "P3": "We believe that we are a reassuring presence for our patients. We want to be a reassuring presence for our patient. We provide an environment where patients can overcome language barriers and receive treatment with peace of mind.",
+        "Booking": "Booking",
+        "Facebook": "Facebook"
+      }
+    }
+  },
   "Data": {
     "Account": {
       "AccountDeleted": "Account deleted",
