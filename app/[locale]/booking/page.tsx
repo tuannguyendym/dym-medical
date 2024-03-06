@@ -12,8 +12,15 @@ import {
   Button,
   Breadcrumbs,
   BreadcrumbItem,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
 } from "@nextui-org/react";
 import { BOOKING_HCM_D1, BOOKING_HCM_D7, BOOKING_HN_NTL, HOME } from "@/route";
+import { useState } from "react";
 
 const d1Images = [
   "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-01.jpg",
@@ -70,6 +77,10 @@ const hnImages = [
 ];
 
 export default function Application() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [modalTitle, setModalTitle] = useState("");
+  const [videoURL, setVideoURL] = useState("");
+
   return (
     <div>
       <Breadcrumbs className="py-2 px-4">
@@ -117,6 +128,16 @@ export default function Application() {
                         >
                           Đặt khám
                         </Link>
+                        <Link
+                          onClick={() => {
+                            setModalTitle("CN Quận 1");
+                            setVideoURL("/video/dym_mplaza_d1_hcm.mp4");
+                            onOpen();
+                          }}
+                          className="mx-1 py-2 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
+                        >
+                          Xem video giới thiệu
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -146,6 +167,16 @@ export default function Application() {
                           className="mx-1 py-2 px-4 bg-blue-500 text-white rounded-xl"
                         >
                           Đặt khám
+                        </Link>
+                        <Link
+                          onClick={() => {
+                            setModalTitle("CN Quận 7");
+                            setVideoURL("/video/dym_the_grace_d7_hcm.mp4");
+                            onOpen();
+                          }}
+                          className="mx-1 py-2 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
+                        >
+                          Xem video giới thiệu
                         </Link>
                       </div>
                     </div>
@@ -186,6 +217,16 @@ export default function Application() {
                         >
                           Đặt khám
                         </Link>
+                        <Link
+                          onClick={() => {
+                            setModalTitle("CN Hà Nội");
+                            setVideoURL("/video/dym_epic_tower_ntl_hn.mp4");
+                            onOpen();
+                          }}
+                          className="mx-1 py-2 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
+                        >
+                          Xem video giới thiệu
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -195,6 +236,53 @@ export default function Application() {
           </Card>
         </Tab>
       </Tabs>
+      <VideoModal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        modalTitle={modalTitle}
+        videoURL={videoURL}
+      />
     </div>
+  );
+}
+
+type Props = {
+  isOpen: boolean;
+  onOpenChange(): void;
+  modalTitle: string;
+  videoURL: string;
+};
+
+export function VideoModal({
+  isOpen,
+  onOpenChange,
+  modalTitle,
+  videoURL,
+}: Props) {
+  return (
+    <Modal size="5xl" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <ModalContent>
+        {(onClose) => (
+          <>
+            <ModalHeader className="flex flex-col gap-1">
+              {modalTitle}
+            </ModalHeader>
+            <ModalBody>
+              <video autoPlay controls muted>
+                <source src={videoURL} type="video/mp4" />
+              </video>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="danger" variant="light" onPress={onClose}>
+                Close
+              </Button>
+              {/* <Button color="primary" onPress={onClose}>
+                Action
+              </Button> */}
+            </ModalFooter>
+          </>
+        )}
+      </ModalContent>
+    </Modal>
   );
 }
