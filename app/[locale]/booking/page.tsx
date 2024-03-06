@@ -9,18 +9,13 @@ import {
   Card,
   CardBody,
   Link,
-  Button,
   Breadcrumbs,
   BreadcrumbItem,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
   useDisclosure,
 } from "@nextui-org/react";
 import { BOOKING_HCM_D1, BOOKING_HCM_D7, BOOKING_HN_NTL, HOME } from "@/route";
 import { useState } from "react";
+import { VideoModal } from "./VideoModal";
 
 const d1Images = [
   "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-01.jpg",
@@ -243,46 +238,5 @@ export default function Application() {
         videoURL={videoURL}
       />
     </div>
-  );
-}
-
-type Props = {
-  isOpen: boolean;
-  onOpenChange(): void;
-  modalTitle: string;
-  videoURL: string;
-};
-
-export function VideoModal({
-  isOpen,
-  onOpenChange,
-  modalTitle,
-  videoURL,
-}: Props) {
-  return (
-    <Modal size="5xl" isOpen={isOpen} onOpenChange={onOpenChange}>
-      <ModalContent>
-        {(onClose) => (
-          <>
-            <ModalHeader className="flex flex-col gap-1">
-              {modalTitle}
-            </ModalHeader>
-            <ModalBody>
-              <video autoPlay controls muted>
-                <source src={videoURL} type="video/mp4" />
-              </video>
-            </ModalBody>
-            <ModalFooter>
-              <Button color="danger" variant="light" onPress={onClose}>
-                Close
-              </Button>
-              {/* <Button color="primary" onPress={onClose}>
-                Action
-              </Button> */}
-            </ModalFooter>
-          </>
-        )}
-      </ModalContent>
-    </Modal>
   );
 }
