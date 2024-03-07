@@ -26,7 +26,12 @@ export default function MapModal({
 }: Props) {
   return (
     <>
-      <Modal size="5xl" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        size="5xl"
+        placement="center"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {(onClose) => (
             <>
