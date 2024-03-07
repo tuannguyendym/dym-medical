@@ -3,7 +3,6 @@ module.exports = {
   LOGIN: "/login",
   REGISTER: "/register",
   FORGOT_PASSWORD: "/forgot-password",
-  BRANCH: "/branch",
   BOOKING: "/booking",
   BOOKING_HCM_D1: "/booking/hcm/d1",
   BOOKING_HCM_D7: "/booking/hcm/d7",

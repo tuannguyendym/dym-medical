@@ -29,6 +29,8 @@ export default function MapModal({
       <Modal
         size="5xl"
         placement="center"
+        backdrop="blur"
+        scrollBehavior="inside"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
       >

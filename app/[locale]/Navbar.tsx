@@ -29,7 +29,7 @@ import {
 } from "./components/svg/Icons";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter, usePathname } from "next/navigation";
-import { BRANCH, CONTACT, HOME, LOGIN, REGISTER, STORY } from "@/route";
+import { BOOKING, CONTACT, HOME, LOGIN, REGISTER, STORY } from "@/route";
 
 export default function App() {
   const t = useTranslations();
@@ -174,7 +174,7 @@ export default function App() {
               key="usage_metrics"
               // description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               startContent={icons.activity}
-              onClick={() => router.push(BRANCH)}
+              onClick={() => router.push(BOOKING)}
               className="text-black dark:text-white"
             >
               {t("UI.Navbar.OurBranch")}
@@ -285,7 +285,7 @@ export default function App() {
             </Link>
             <Link
               className="w-full py-1"
-              href={BRANCH}
+              href={BOOKING}
               size="lg"
               color="foreground"
             >

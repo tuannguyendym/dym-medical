@@ -186,10 +186,12 @@ export default function App() {
         </div>
       </section>
       <Modal
-        size="2xl"
+        size="5xl"
+        placement="center"
+        backdrop="blur"
+        scrollBehavior="inside"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        scrollBehavior="inside"
       >
         <ModalContent>
           {(onClose) => (
