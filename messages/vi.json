@@ -32,6 +32,7 @@
   },
   "UI": {
     "Navbar": {
+      "Home": "Trang chủ",
       "Introduce": "Giới thiệu",
       "DYMStory": "Câu chuyện DYM",
       "OurBranch": "Hệ thống phòng khám",
@@ -50,6 +51,20 @@
         "Booking": "Đặt lịch",
         "Facebook": "Facebook"
       }
+    },
+    "Contact": {
+      "Title": "Liên hệ",
+      "FullName": "Họ và tên",
+      "Gender": "Giới tính",
+      "Male": "Nam",
+      "Felame": "Nữ",
+      "CompanyName": "Tên công ty",
+      "Email": "Email",
+      "PhoneNumber": "Số điện thoại",
+      "HowToReceiveInformation": "Cách thức nhận thông tin",
+      "Phone": "Điện thoại",
+      "Note": "Ghi chú",
+      "Submit": "Gửi"
     }
   },
   "Data": {

@@ -2,25 +2,27 @@
 import { useState } from "react";
 import { BreadcrumbItem, Breadcrumbs, Checkbox, Link } from "@nextui-org/react";
 import { HOME } from "@/route";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
   const [isSelectedPhone, setIsSelectedPhone] = useState(false);
   const [isSelectedEmail, setIsSelectedEmail] = useState(false);
+  const t = useTranslations();
 
   return (
     <div>
       <Breadcrumbs className="py-2 px-4">
         <BreadcrumbItem>
           <Link href={HOME} className="text-gray-500 text-md">
-            Trang chủ
+          {t("UI.Navbar.Home")}
           </Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>Liên hệ</BreadcrumbItem>
+        <BreadcrumbItem>{t("UI.Contact.Title")}</BreadcrumbItem>
       </Breadcrumbs>
       <div className=" bg-white px-5 py-5">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Liên hệ
+          {t("UI.Contact.Title")}
           </h2>
         </div>
         <form action="#" method="POST" className="mx-auto mt-5 max-w-xl">
@@ -30,7 +32,7 @@ export default function Contact() {
                 htmlFor="first-name"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Họ và tên
+                {t("UI.Contact.FullName")}
               </label>
               <div className="mt-2.5">
                 <input
@@ -47,7 +49,7 @@ export default function Contact() {
                 htmlFor="last-name"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Giới tính
+                {t("UI.Contact.Gender")}
               </label>
               <div className="mt-2.5">
                 <select
@@ -55,8 +57,8 @@ export default function Contact() {
                   id=""
                   className="h-10 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 >
-                  <option value="male">Nam</option>
-                  <option value="female">Nữ</option>
+                  <option value="male">{t("UI.Contact.Male")}</option>
+                  <option value="female">{t("UI.Contact.Female")}</option>
                 </select>
               </div>
             </div>
@@ -65,7 +67,7 @@ export default function Contact() {
                 htmlFor="company"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Công ty
+                {t("UI.Contact.CompanyName")}
               </label>
               <div className="mt-2.5">
                 <input
@@ -82,7 +84,7 @@ export default function Contact() {
                 htmlFor="email"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Email
+                {t("UI.Contact.Email")}
               </label>
               <div className="mt-2.5">
                 <input
@@ -99,7 +101,7 @@ export default function Contact() {
                 htmlFor="phone-number"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Số điện thoại
+                {t("UI.Contact.PhoneNumber")}
               </label>
               <div className="relative mt-2.5">
                 <input
@@ -116,7 +118,7 @@ export default function Contact() {
                 htmlFor="phone-number"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Cách thức nhận thông tin
+                {t("UI.Contact.HowToReceiveInformation")}
               </label>
               <div className="">
                 <div className="pt-2">
@@ -124,7 +126,7 @@ export default function Contact() {
                     isSelected={isSelectedPhone}
                     onValueChange={setIsSelectedPhone}
                   >
-                    Điện thoại
+                    {t("UI.Contact.Phone")}
                   </Checkbox>
                 </div>
                 <div className="pt-2">
@@ -132,7 +134,7 @@ export default function Contact() {
                     isSelected={isSelectedEmail}
                     onValueChange={setIsSelectedEmail}
                   >
-                    Email
+                    {t("UI.Contact.Email")}
                   </Checkbox>
                 </div>
               </div>
@@ -142,7 +144,7 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Ghi chú
+                {t("UI.Contact.Note")}
               </label>
               <div className="mt-2.5">
                 <textarea
@@ -160,7 +162,7 @@ export default function Contact() {
               type="submit"
               className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Gửi
+              {t("UI.Contact.Submit")}
             </button>
           </div>
         </form>

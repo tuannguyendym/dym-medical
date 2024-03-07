@@ -32,6 +32,7 @@
   },
   "UI": {
     "Navbar": {
+      "Home": "Home",
       "Introduce": "Introduce",
       "DYMStory": "DYM Story",
       "OurBranch": "Our Branch",
@@ -50,6 +51,20 @@
         "Booking": "Booking",
         "Facebook": "Facebook"
       }
+    },
+    "Contact": {
+      "Title": "Contact",
+      "FullName": "Full name",
+      "Gender": "Gender",
+      "Male": "Male",
+      "Felame": "Felame",
+      "CompanyName": "Company name",
+      "Email": "Email",
+      "PhoneNumber": "Phone number",
+      "HowToReceiveInformation": "How to receive information",
+      "Phone": "Phone",
+      "Note": "Note",
+      "Submit": "Submit"
     }
   },
   "Data": {
