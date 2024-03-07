@@ -24,6 +24,8 @@ export default function VideoModal({
     <Modal
       size="5xl"
       placement="center"
+      backdrop="blur"
+      scrollBehavior="inside"
       isOpen={isOpen}
       onOpenChange={onOpenChange}
     >
