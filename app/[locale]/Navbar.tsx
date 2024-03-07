@@ -274,14 +274,18 @@ export default function App() {
 
       <NavbarMenu>
         <Accordion>
-          <AccordionItem key="1" aria-label="Giới thiệu" title="Giới thiệu">
+          <AccordionItem
+            key="1"
+            aria-label={t("UI.Navbar.Introduce")}
+            title={t("UI.Navbar.Introduce")}
+          >
             <Link
               className="w-full py-1"
               href={STORY}
               size="lg"
               color="foreground"
             >
-              Câu chuyện DYM
+              {t("UI.Navbar.DYMStory")}
             </Link>
             <Link
               className="w-full py-1"
@@ -289,16 +293,16 @@ export default function App() {
               size="lg"
               color="foreground"
             >
-              Hệ thống phòng khám
+              {t("UI.Navbar.OurBranch")}
             </Link>
             <Link className="w-full py-1" href="#" size="lg" color="foreground">
-              Thời gian làm việc
+              {t("UI.Navbar.WorkingTime")}
             </Link>
             <Link className="w-full py-1" href="#" size="lg" color="foreground">
-              Bảng giá dịch vụ
+              {t("UI.Navbar.ServicePriceList")}
             </Link>
             <Link className="w-full py-1" href="#" size="lg" color="foreground">
-              Giấy phép làm việc
+              {t("UI.Navbar.License")}
             </Link>
           </AccordionItem>
         </Accordion>
@@ -308,7 +312,7 @@ export default function App() {
           size="lg"
           color="foreground"
         >
-          Liên hệ
+          {t("UI.Navbar.Contact")}
         </Link>
         <Link
           className="w-full px-2 py-3"
@@ -316,7 +320,7 @@ export default function App() {
           size="lg"
           color="foreground"
         >
-          Tin tức
+          {t("UI.Navbar.News")}
         </Link>
       </NavbarMenu>
 
