@@ -8,14 +8,16 @@ import {
   Button,
   Link,
 } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
 
 export default function Appointment() {
+  const t = useTranslations();
   return (
     <div>
       <Breadcrumbs className="py-2 px-4">
         <BreadcrumbItem>
           <Link href={HOME} className="text-gray-500 text-md">
-            Trang chủ
+          {t("UI.Navbar.Home")}
           </Link>
         </BreadcrumbItem>
         <BreadcrumbItem>

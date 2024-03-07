@@ -42,6 +42,32 @@
       "Contact": "Liên hệ",
       "News": "Tin tức"
     },
+    "Branch": {
+      "HCM": {
+        "Name": "TP. Hồ Chí Minh",
+        "D1": {
+          "Name": "DYM MEDICAL CENTER QUẬN 1",
+          "Address": "Phòng B103, Tầng hầm 1, tòa nhà mPlaza Saigon, số 39 Lê Duẩn, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
+          "WorkingTime": "07h30 - 17h00"
+        },
+        "D7": {
+          "Name": "DYM MEDICAL CENTER PHÚ MỸ HƯNG",
+          "Address": "Phòng 3A01, Tầng 3A, Tòa nhà The Grace, 71 Hoàng Văn Thái, Khu phố 1, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh, Việt Nam",
+          "WorkingTime": "08h00 - 17h00"
+        }
+      },
+      "HaNoi": {
+        "Name": "Thủ đô Hà Nội",
+        "NamTuLiem": {
+          "Name": "DYM MEDICAL CENTER HÀ NỘI",
+          "Address": "Tầng hầm B1, tòa Epic Tower, ngõ 19 Duy Tân, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam",
+          "WorkingTime": "08h00 - 17h00"
+        }
+      },
+      "Call": "Gọi ngay",
+      "Booking": "Đặt hẹn khám",
+      "IntroductoryVideo": "Video giới thiệu"
+    },
     "Home": {
       "Hero": {
         "Title": "DYM MEDICAL CENTER VIETNAM",

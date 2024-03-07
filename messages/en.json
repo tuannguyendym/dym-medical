@@ -42,6 +42,32 @@
       "Contact": "Contact",
       "News": "News"
     },
+    "Branch": {
+      "HCM": {
+        "Name": "Ho Chi Minh",
+        "D1": {
+          "Name": "DYM MEDICAL CENTER DISTRICT 1",
+          "Address": "Room B103, Basement 1, mPlaza Saigon Building, No. 39 Le Duan, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",
+          "WorkingTime": "07h30 - 17h00"
+        },
+        "D7": {
+          "Name": "DYM MEDICAL CENTER PHU MY HUNG",
+          "Address": "Room 3A01, Floor 3A, The Grace Building, 71 Hoang Van Thai, Quarter 1, Tan Phu Ward, District 7, Ho Chi Minh City, Vietnam",
+          "WorkingTime": "08h00 - 17h00"
+        }
+      },
+      "HaNoi": {
+        "Name": "Ha Noi",
+        "NamTuLiem": {
+          "Name": "DYM MEDICAL CENTER HANOI",
+          "Address": "Basement B1, Epic Tower, Lane 19 Duy Tan, My Dinh 2 Ward, Nam Tu Liem District, Hanoi City, Vietnam",
+          "WorkingTime": "08h00 - 17h00"
+        }
+      },
+      "Call": "Call",
+      "Booking": "Booking",
+      "IntroductoryVideo": "Introductory Video"
+    },
     "Home": {
       "Hero": {
         "Title": "DYM MEDICAL CENTER VIETNAM",
