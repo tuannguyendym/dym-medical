@@ -1,14 +1,16 @@
 "use client";
-import { ANDROID, HOME, IOS } from "@/route";
+import { ANDROID, BOOKING, HOME, IOS } from "@/route";
 import MapModal from "./MapModal";
 import { Link, useDisclosure } from "@nextui-org/react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [modalTitle, setModalTitle] = useState("");
   const [mapSrc, setMapSrc] = useState("");
   const [mapUrl, setMapUrl] = useState("");
+  const t = useTranslations();
 
   return (
     <footer className="bg-white dark:bg-gray-800 pt-10">
@@ -17,50 +19,50 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
           <div>
             <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Về DYM
+              {t("UI.Footer.AboutUs")}
             </h3>
             <ul className="text-gray-500 dark:text-gray-400">
               <li className="mb-4">
                 <a href="#" className=" hover:underline">
-                  Giới thiệu
+                  {t("UI.Footer.Introduce")}
                 </a>
               </li>
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Tuyển dụng
+                  {t("UI.Footer.Recruitment")}
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
-                  Hệ thống phòng khám
+                <a href={BOOKING} className="hover:underline">
+                  {t("UI.Footer.Booking")}
                 </a>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Chính sách
+              {t("UI.Footer.Policy")}
             </h3>
             <ul className="text-gray-500 dark:text-gray-400">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Chính sách thanh toán
+                  {t("UI.Footer.PaymentPolicy")}
                 </a>
               </li>
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Chính sách bảo mật
+                  {t("UI.Footer.PrivacyPolicy")}
                 </a>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Hỗ trợ
+              {t("UI.Footer.Support")}
             </h3>
             <ul className="text-gray-500 dark:text-gray-400">
               <li className="flex mb-4">
-                <div className="mr-1">Hotline:</div>
+                <div className="mr-1">{t("UI.Footer.Hotline")}</div>
                 <a
                   href="tel:1900292937"
                   className="hover:underline text-blue-500 font-bold"
@@ -69,7 +71,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex mb-4">
-                <div className="mr-1">Email:</div>
+                <div className="mr-1">{t("UI.Footer.Email")}</div>
                 <a
                   href="mailto:info@dymmedicalcenter.com.vn"
                   className="hover:underline text-blue-500 font-bold"
@@ -81,17 +83,17 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Download
+              {t("UI.Footer.DYMApplication")}
             </h3>
             <ul className="text-gray-500 dark:text-gray-400">
               <li className="mb-4">
                 <a href={IOS} target="_blank" className=" hover:underline">
-                  iOS
+                  {t("UI.Footer.iOS")}
                 </a>
               </li>
               <li className="mb-4">
                 <a href={ANDROID} target="_blank" className="hover:underline">
-                  Android
+                  {t("UI.Footer.Android")}
                 </a>
               </li>
             </ul>
@@ -101,14 +103,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>
             <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Địa chỉ
+              {t("UI.Footer.Address")}
             </h3>
             <ul className=" text-gray-500 dark:text-gray-400">
               <li className="flex mb-4">
                 <a
                   className="cursor-pointer"
                   onClick={() => {
-                    setModalTitle("CN Quận 1");
+                    setModalTitle(t("UI.Branch.HCM.D1.Name"));
                     setMapSrc(
                       "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15677.557267381293!2d106.7001032!3d10.7814649!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752feab9a946c7%3A0xccda3491fb2b5d98!2zUGjDsm5nIEtow6FtIMSQYSBLaG9hIFF14buRYyBU4bq_IERZTSBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1709361359976!5m2!1svi!2s"
                     );
@@ -116,16 +118,14 @@ export default function Footer() {
                     onOpen();
                   }}
                 >
-                  CN Quận 1: Phòng B103, Tầng hầm 1, tòa nhà mPlaza Saigon, số
-                  39 Lê Duẩn, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh,
-                  Việt Nam
+                  {t("UI.Branch.HCM.D1.Name")} - {t("UI.Branch.HCM.D1.Address")}
                 </a>
               </li>
               <li className="flex mb-4">
                 <a
                   className="cursor-pointer"
                   onClick={() => {
-                    setModalTitle("CN Quận 7");
+                    setModalTitle(t("UI.Branch.HCM.D7.Name"));
                     setMapSrc(
                       "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15680.19058756734!2d106.7235497!3d10.7308086!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175251a039aadf1%3A0x87312c23f09a3749!2sDYM%20Medical%20Center%20Phu%20My%20Hung!5e0!3m2!1svi!2s!4v1709363421228!5m2!1svi!2s"
                     );
@@ -133,16 +133,14 @@ export default function Footer() {
                     onOpen();
                   }}
                 >
-                  CN Quận 7: Phòng 3A01, Tầng 3A, Tòa nhà The Grace, 71 Hoàng
-                  Văn Thái, Khu phố 1, Phường Tân Phú, Quận 7, Thành phố Hồ Chí
-                  Minh
+                  {t("UI.Branch.HCM.D7.Name")} - {t("UI.Branch.HCM.D7.Address")}
                 </a>
               </li>
               <li className="flex mb-4">
                 <a
                   className="cursor-pointer"
                   onClick={() => {
-                    setModalTitle("CN Hà Nội");
+                    setModalTitle(t("UI.Branch.HaNoi.NamTuLiem.Name"));
                     setMapSrc(
                       "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14896.232005611902!2d105.7815076!3d21.0303651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455002a968a15%3A0xb302ba205f90ac7c!2zUGjDsm5nIEtow6FtIMSQYSBLaG9hIERZTSBNZWRpY2FsIENlbnRlciBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1709363642776!5m2!1svi!2s"
                     );
@@ -150,8 +148,8 @@ export default function Footer() {
                     onOpen();
                   }}
                 >
-                  CN Hà Nội: Tầng hầm B1, tòa Epic Tower, ngõ 19 Duy Tân, Phường
-                  Mỹ Đình 2, Quận Nam Từ Liêm, Thủ Đô Hà Nội
+                  {t("UI.Branch.HaNoi.NamTuLiem.Name")} -{" "}
+                  {t("UI.Branch.HaNoi.NamTuLiem.Address")}
                 </a>
               </li>
             </ul>
@@ -269,15 +267,13 @@ export default function Footer() {
               </li>
             </ul>
             <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              CÔNG TY TNHH DYMMEDICAL CENTER VIỆT NAM
+              {t("UI.Footer.CompanyName")}
             </h3>
             <p className="mb-4 text-gray-500 dark:text-gray-400">
-              Giấy chứng nhận ĐKDN số 0316060982, đăng ký lần đầu ngày
-              12/11/2019, cấp bởi Sở Kế hoạt và Đầu tư Thành phố Hồ Chí Minh.
+              {t("UI.Footer.BRC")}
             </p>
             <p className="mb-4 text-gray-500 dark:text-gray-400">
-              Giấy phép hoạt động khám bệnh, chữa bệnh số 08174/HCM-GPHD do Sở Y
-              tế TP HCM cấp ngày 05/08/2020.
+              {t("UI.Footer.OperateLicense")}
             </p>
             <a
               className="flex items-center mb-5"
@@ -287,7 +283,7 @@ export default function Footer() {
               <img alt="gov" src="/logoSaleNoti.png" width={200} />
             </a>
             <span className="block mb-5 text-sm text-gray-500 dark:text-gray-400">
-              © 2020 - {new Date().getFullYear()} DYM. All Rights Reserved.
+              © 2020 - {new Date().getFullYear()} DYM. {t("UI.Footer.ARR")}
             </span>
           </div>
         </div>

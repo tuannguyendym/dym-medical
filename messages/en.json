@@ -91,6 +91,26 @@
       "Phone": "Phone",
       "Note": "Note",
       "Submit": "Submit"
+    },
+    "Footer": {
+      "AboutUs": "About Us",
+      "Introduce": "Introduce",
+      "Recruitment": "Recruitment",
+      "Booking": "Booking",
+      "Policy": "Policy",
+      "PaymentPolicy": "Payment Policy",
+      "PrivacyPolicy": "Privacy Policy",
+      "Support": "Support",
+      "Hotline": "Hotline:",
+      "Email": "Email:",
+      "DYMApplication": "DYM Application",
+      "Android": "Android",
+      "iOS": "iOS",
+      "Address": "Address",
+      "CompanyName": "DYM MEDICAL CENTER VIETNAM COMPANY LIMITED",
+      "BRC": "Business registration certificate No. 0316060982, first registered on November 12, 2019, issued by the Department of Planning and Investment of Ho Chi Minh City.",
+      "OperateLicense": "Medical examination and treatment operation license No. 08174/HCM-GPHD issued by Ho Chi Minh City Department of Health on August 5, 2020.",
+      "ARR": "All rights reserved."
     }
   },
   "Data": {
