@@ -1,8 +1,5 @@
 "use client";
-import dynamic from "next/dynamic";
-const CarouselComponent = dynamic(() => import("./CarouselComponent"), {
-  ssr: false,
-});
+
 import {
   Tabs,
   Tab,
@@ -15,19 +12,61 @@ import {
 } from "@nextui-org/react";
 import { BOOKING_HCM_D1, BOOKING_HCM_D7, BOOKING_HN_NTL, HOME } from "@/route";
 import { useState } from "react";
-import { VideoModal } from "./VideoModal";
+import VideoModal from "./VideoModal";
+import CarouselComponent from "./CarouselComponent";
 
 const d1Images = [
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-01.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-02.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-03.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-04.jpg",
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-01.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-01.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-02.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-02.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-03.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-03.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-04.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital1-04.jpg",
+  },
 ];
+
 const d7Images = [
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/top/clinic-02.jpeg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-01.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-02.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-03.jpg",
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/top/clinic-02.jpeg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/top/clinic-02.jpeg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-01.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-01.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-02.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-02.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-03.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital2-03.jpg",
+  },
 ];
 // const hnImages = [
 //   "/dym_hn/1.jpg",
@@ -63,12 +102,38 @@ const d7Images = [
 //   "/dym_hn/31.jpg",
 //   "/dym_hn/32.jpg",
 // ];
+
 const hnImages = [
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/top/clinic-03.jpeg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-01.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-02.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-03.jpg",
-  "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-04.jpg",
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/top/clinic-03.jpeg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/top/clinic-03.jpeg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-01.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-01.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-02.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-02.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-03.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-03.jpg",
+  },
+  {
+    original:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-04.jpg",
+    thumbnail:
+      "https://dymmedicalcenter.com.vn/wp-content/themes/clinic/img/clinic/hospital3-04.jpg",
+  },
 ];
 
 export default function Application() {
@@ -97,7 +162,7 @@ export default function Application() {
               <div className="py-1 mx-auto">
                 <div className="grid-cols-1 sm:grid md:grid-cols-2">
                   <div className="mx-1 flex flex-col self-start rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
-                    <CarouselComponent idCarousel="d1" images={d1Images} />
+                    <CarouselComponent images={d1Images} />
                     <div className="p-6">
                       <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                         DYM MEDICAL CENTER QUẬN 1
@@ -129,7 +194,7 @@ export default function Application() {
                             setVideoURL("/video/dym_mplaza_d1_hcm.mp4");
                             onOpen();
                           }}
-                          className="mx-1 py-2 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
+                          className="mx-1 py-2 my-4 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
                         >
                           Xem video giới thiệu
                         </Link>
@@ -137,7 +202,7 @@ export default function Application() {
                     </div>
                   </div>
                   <div className="mt-4 md:mt-0 mx-1 flex flex-col self-start rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
-                    <CarouselComponent idCarousel="d7" images={d7Images} />
+                    <CarouselComponent images={d7Images} />
                     <div className="p-6">
                       <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                         DYM MEDICAL CENTER PHÚ MỸ HƯNG
@@ -152,7 +217,7 @@ export default function Application() {
                       </p>
                       <div className="mt-4">
                         <Link
-                          href="#"
+                          href="tel:02877710170"
                           className="mx-1 py-2 px-4 bg-rose-500 text-white rounded-xl"
                         >
                           Gọi ngay
@@ -169,7 +234,7 @@ export default function Application() {
                             setVideoURL("/video/dym_the_grace_d7_hcm.mp4");
                             onOpen();
                           }}
-                          className="mx-1 py-2 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
+                          className="mx-1 py-2 my-4 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
                         >
                           Xem video giới thiệu
                         </Link>
@@ -187,7 +252,7 @@ export default function Application() {
               <div className="py-1 mx-auto">
                 <div className="grid-cols-1 sm:grid md:grid-cols-2">
                   <div className="mx-1 flex flex-col self-start rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
-                    <CarouselComponent idCarousel="hn" images={hnImages} />
+                    <CarouselComponent images={hnImages} />
                     <div className="p-6">
                       <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                         DYM MEDICAL CENTER HÀ NỘI
@@ -201,7 +266,7 @@ export default function Application() {
                       </p>
                       <div className="mt-4">
                         <Link
-                          href="#"
+                          href="tel:02477710170"
                           className="mx-1 py-2 px-4 bg-rose-500 text-white rounded-xl"
                         >
                           Gọi ngay
@@ -218,7 +283,7 @@ export default function Application() {
                             setVideoURL("/video/dym_epic_tower_ntl_hn.mp4");
                             onOpen();
                           }}
-                          className="mx-1 py-2 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
+                          className="mx-1 py-2 my-4 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
                         >
                           Xem video giới thiệu
                         </Link>

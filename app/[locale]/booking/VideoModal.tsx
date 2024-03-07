@@ -14,7 +14,7 @@ type Props = {
   videoURL: string;
 };
 
-export function VideoModal({
+export default function VideoModal({
   isOpen,
   onOpenChange,
   modalTitle,
@@ -34,7 +34,7 @@ export function VideoModal({
               {modalTitle}
             </ModalHeader>
             <ModalBody>
-              <video autoPlay controls muted>
+              <video autoPlay controls muted preload="auto">
                 <source src={videoURL} type="video/mp4" />
               </video>
             </ModalBody>
