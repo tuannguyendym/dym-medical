@@ -40,7 +40,8 @@
       "ServicePriceList": "Bảng giá dịch vụ",
       "License": "Giấy phép",
       "Contact": "Liên hệ",
-      "News": "Tin tức"
+      "News": "Tin tức",
+      "Details": "Chi tiết"
     },
     "Branch": {
       "HCM": {

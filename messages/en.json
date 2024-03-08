@@ -40,7 +40,8 @@
       "ServicePriceList": "Service Price List",
       "License": "License",
       "Contact": "Contact",
-      "News": "News"
+      "News": "News",
+      "Details": "Details"
     },
     "Branch": {
       "HCM": {
