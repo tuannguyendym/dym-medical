@@ -1,9 +1,10 @@
 "use client";
-
 import { HOME } from "@/route";
 import { BreadcrumbItem, Breadcrumbs, Link } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
 
 export default function App() {
+  const t = useTranslations();
   return (
     <div>
       <div className="relative isolate overflow-hidden bg-white px-6 py-4 lg:overflow-visible lg:px-0">
@@ -42,10 +43,10 @@ export default function App() {
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="">
               <div className="lg:max-w-lg">
-                <Breadcrumbs className="py-2">
+                <Breadcrumbs underline="hover" className="py-2">
                   <BreadcrumbItem>
                     <Link href={HOME} className="text-gray-500 text-md">
-                      Trang chủ
+                    {t("UI.Navbar.Home")}
                     </Link>
                   </BreadcrumbItem>
                   <BreadcrumbItem>Câu chuyện từ nhà sáng lập</BreadcrumbItem>

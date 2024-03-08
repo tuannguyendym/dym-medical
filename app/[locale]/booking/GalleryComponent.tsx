@@ -8,7 +8,7 @@ type Props = {
   }[];
 };
 
-export default function CarouselComponent({ images }: Props) {
+export default function GalleryComponent({ images }: Props) {
   return (
     <>
       <ReactImageGallery

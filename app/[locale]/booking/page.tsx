@@ -13,8 +13,8 @@ import {
 import { BOOKING_HCM_D1, BOOKING_HCM_D7, BOOKING_HN_NTL, HOME } from "@/route";
 import { useState } from "react";
 import VideoModal from "./VideoModal";
-import CarouselComponent from "./CarouselComponent";
 import { useTranslations } from "next-intl";
+import GalleryComponent from "./GalleryComponent";
 
 const d1Images = [
   {
@@ -145,7 +145,7 @@ export default function Application() {
 
   return (
     <div>
-      <Breadcrumbs className="py-2 px-4">
+      <Breadcrumbs underline="hover" className="py-2 px-4">
         <BreadcrumbItem>
           <Link href={HOME} className="text-gray-500 text-md">
             {t("UI.Navbar.Home")}
@@ -168,7 +168,7 @@ export default function Application() {
               <div className="py-1 mx-auto">
                 <div className="grid-cols-1 sm:grid md:grid-cols-2">
                   <div className="mx-1 flex flex-col self-start rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
-                    <CarouselComponent images={d1Images} />
+                    <GalleryComponent images={d1Images} />
                     <div className="p-6">
                       <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                         {t("UI.Branch.HCM.D1.Name")}
@@ -200,22 +200,22 @@ export default function Application() {
                           }}
                           className="mx-1 py-2 my-4 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
                         >
-                          {t("UI.Branch.IntroductoryVideo")}
+                          {t("UI.Branch.Video")}
                         </Link>
                       </div>
                     </div>
                   </div>
                   <div className="mt-4 md:mt-0 mx-1 flex flex-col self-start rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
-                    <CarouselComponent images={d7Images} />
+                    <GalleryComponent images={d7Images} />
                     <div className="p-6">
                       <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                      {t("UI.Branch.HCM.D7.Name")}
+                        {t("UI.Branch.HCM.D7.Name")}
                       </h5>
                       <p className="mb-2 text-base text-neutral-600 dark:text-neutral-200">
-                      {t("UI.Branch.HCM.D7.Address")}
+                        {t("UI.Branch.HCM.D7.Address")}
                       </p>
                       <p className="mb-2 text-base text-neutral-600 dark:text-neutral-200">
-                      {t("UI.Branch.HCM.D7.WorkingTime")}
+                        {t("UI.Branch.HCM.D7.WorkingTime")}
                       </p>
                       <div className="mt-4">
                         <Link
@@ -238,7 +238,7 @@ export default function Application() {
                           }}
                           className="mx-1 py-2 my-4 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
                         >
-                          {t("UI.Branch.IntroductoryVideo")}
+                          {t("UI.Branch.Video")}
                         </Link>
                       </div>
                     </div>
@@ -258,23 +258,23 @@ export default function Application() {
               <div className="py-1 mx-auto">
                 <div className="grid-cols-1 sm:grid md:grid-cols-2">
                   <div className="mx-1 flex flex-col self-start rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 sm:shrink-0 sm:grow sm:basis-0">
-                    <CarouselComponent images={hnImages} />
+                    <GalleryComponent images={hnImages} />
                     <div className="p-6">
                       <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                      {t("UI.Branch.HaNoi.NamTuLiem.Name")}
+                        {t("UI.Branch.HaNoi.NamTuLiem.Name")}
                       </h5>
                       <p className="mb-2 text-base text-neutral-600 dark:text-neutral-200">
-                      {t("UI.Branch.HaNoi.NamTuLiem.Address")}
+                        {t("UI.Branch.HaNoi.NamTuLiem.Address")}
                       </p>
                       <p className="mb-2 text-base text-neutral-600 dark:text-neutral-200">
-                      {t("UI.Branch.HaNoi.NamTuLiem.WorkingTime")}
+                        {t("UI.Branch.HaNoi.NamTuLiem.WorkingTime")}
                       </p>
                       <div className="mt-4">
                         <Link
                           href="tel:02477710170"
                           className="mx-1 py-2 px-4 bg-rose-500 text-white rounded-xl"
                         >
-                         {t("UI.Branch.Call")}
+                          {t("UI.Branch.Call")}
                         </Link>
                         <Link
                           href={BOOKING_HN_NTL}
@@ -290,7 +290,7 @@ export default function Application() {
                           }}
                           className="mx-1 py-2 my-4 px-4 bg-green-500 text-white rounded-xl cursor-pointer"
                         >
-                           {t("UI.Branch.IntroductoryVideo")}
+                          {t("UI.Branch.Video")}
                         </Link>
                       </div>
                     </div>

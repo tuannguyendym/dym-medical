@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.9",
+    "@nextui-org/react": "^2.2.10",
     "@types/react-image-gallery": "^1.2.4",
     "@vercel/analytics": "^1.1.2",
     "@vercel/speed-insights": "^1.0.9",

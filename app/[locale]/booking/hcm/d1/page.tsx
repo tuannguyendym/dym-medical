@@ -8,7 +8,7 @@ import {
   Button,
   Link,
 } from "@nextui-org/react";
-import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const products = [
   {
@@ -266,23 +266,21 @@ const wpHC = [
 ];
 
 export default function BookingHCMD1() {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [typeOfServices, setTypeOfServices] = useState(outpatientServices);
-
+  const t = useTranslations();
   return (
     <div>
-      <Breadcrumbs className="py-2 px-4">
+      <Breadcrumbs underline="hover" className="py-2 px-4">
         <BreadcrumbItem>
           <Link href={HOME} className="text-gray-500 text-md">
-            Trang chủ
+            {t("UI.Navbar.Home")}
           </Link>
         </BreadcrumbItem>
         <BreadcrumbItem>
           <Link href={BOOKING} className="text-gray-500 text-md">
-            Đặt hẹn khám
+            {t("UI.Home.Hero.Booking")}
           </Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>Hồ Chí Minh - Quận 1</BreadcrumbItem>
+        <BreadcrumbItem>{t("UI.Branch.HCM.D1.Name")}</BreadcrumbItem>
       </Breadcrumbs>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">

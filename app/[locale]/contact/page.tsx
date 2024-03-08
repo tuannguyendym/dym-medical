@@ -11,7 +11,7 @@ export default function Contact() {
 
   return (
     <div>
-      <Breadcrumbs className="py-2 px-4">
+      <Breadcrumbs underline="hover" className="py-2 px-4">
         <BreadcrumbItem>
           <Link href={HOME} className="text-gray-500 text-md">
           {t("UI.Navbar.Home")}
